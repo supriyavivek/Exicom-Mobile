@@ -1,4 +1,5 @@
-.project.metadata
+.project
+.metadata/
 <<<<<<< HEAD
 .metadata/.plugins/org.eclipse.cdt.core/.log
 
@@ -60,3 +61,11 @@
 =======
 .metadata/.plugins/org.eclipse.ui.workbench/workbench.xml
 >>>>>>> FETCH_HEAD
+
+*.tree
+
+*.index
+
+.metadata/.plugins/org.eclipse.core.resources/.history/63/200110169ceb00131ccbb48fc536c96d
+
+.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
