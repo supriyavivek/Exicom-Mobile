@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="JarFiles/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="JarFiles/ios-server-standalone-0.6.6-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="JarFiles/poi-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="JarFiles/poi-ooxml-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="JarFiles/poi-ooxml-schemas-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="JarFiles/selendroid-standalone-0.9.0-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="JarFiles/selenium-java-2.41.0-srcs.jar"/>
+	<classpathentry kind="lib" path="JarFiles/selenium-java-2.41.0.jar"/>
+	<classpathentry kind="lib" path="JarFiles/selenium-server-standalone-2.41.0.jar"/>
+	<classpathentry kind="lib" path="JarFiles/testng-6.8.5.jar"/>
+	<classpathentry kind="lib" path="JarFiles/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="JarFiles/android.jar"/>
+	<classpathentry kind="lib" path="JarFiles/java-client-1.2.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="JarFiles/java-client-1.2.1-sources.jar"/>
+	<classpathentry kind="lib" path="JarFiles/java-client-1.2.1.jar"/>
+	<classpathentry kind="lib" path="JarFiles/java-client.jar"/>
+	<classpathentry kind="lib" path="JarFiles/robotium-solo-5.1.jar"/>
+	<classpathentry kind="lib" path="JarFiles/uiautomator.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
