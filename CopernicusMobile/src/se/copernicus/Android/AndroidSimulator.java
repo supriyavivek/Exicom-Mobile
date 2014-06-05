@@ -185,7 +185,7 @@ public class AndroidSimulator {
 		public void DeleteTimeReport()
 		{
 			driver.findElement(By.name("1090/")).click();
-			//driver.getKeyboard().sendKeys(AndroidKeyCode.MENU);
+			//driver.getKeyboard().sendKeys(AndroidKeyCode.MENUsdfdsf);
 			//AppiumDriver.sendKeyEvent(AndroidKeyCode.MENU);
 			driver.findElement(By.xpath("//android.view.View[1]/android.widget.TextView[1]")).click();
 			driver.findElement(By.className("android.widget.Button")).click();
