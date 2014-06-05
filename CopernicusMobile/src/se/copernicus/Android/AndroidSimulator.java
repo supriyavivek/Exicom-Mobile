@@ -54,7 +54,7 @@ public class AndroidSimulator {
 			editText.get(1).click();
 			editText.get(1).sendKeys("1000");
 			
-			//continue login with incorrect value
+			//continue login with incorrect url value
 			IncorrectUrl();
 //			driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
 //			WebElement pass=driver.findElements(By.className("android.widget.EditText")).get(0);
