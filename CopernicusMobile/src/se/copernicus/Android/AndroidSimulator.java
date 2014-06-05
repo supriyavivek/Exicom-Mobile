@@ -56,7 +56,7 @@ public class AndroidSimulator {
 			
 			//continue login with incorrect url value
 			IncorrectUrl();
-//			driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
+///			driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
 //			WebElement pass=driver.findElements(By.className("android.widget.EditText")).get(0);
 //			pass.sendKeys("password");
 //			List<WebElement> ButtonClick=driver.findElements(By.className("android.widget.Button"));
