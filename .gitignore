@@ -60,3 +60,11 @@
 =======
 .metadata/.plugins/org.eclipse.ui.workbench/workbench.xml
 >>>>>>> FETCH_HEAD
+
+*.index
+
+*.prefs
+
+*.prefs
+
+.metadata/.plugins/org.eclipse.core.runtime/.settings/com.android.ide.eclipse.adt.prefs
