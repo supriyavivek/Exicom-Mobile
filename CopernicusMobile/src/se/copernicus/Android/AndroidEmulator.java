@@ -80,9 +80,9 @@ public class AndroidEmulator {
 		{
 			List<WebElement> saveButton=driver.findElements(By.className("android.widget.Button"));
 			saveButton.get(0).click();
-			List<WebElement> infoMissing=driver.findElements(By.className("android.widget.TextView"));
-			String eMsg=infoMissing.get(1).getText();
-			Assert.assertEquals("User, Company and Address are required fields", eMsg);
+//			List<WebElement> infoMissing=driver.findElements(By.className("android.widget.TextView"));
+//			String eMsg=infoMissing.get(1).getText();
+//			Assert.assertEquals("User, Company and Address are required fields", eMsg);
 			List<WebElement> okClick=driver.findElements(By.className("android.widget.Button"));
 			okClick.get(0).click();
 		}
@@ -102,9 +102,9 @@ public class AndroidEmulator {
 			WebDriverWait wait=new WebDriverWait(driver, 120);
 			List<WebElement> okButton=driver.findElements(By.className("android.widget.Button"));
 			wait.until(ExpectedConditions.visibilityOfAllElements(okButton));
-			List<WebElement> infoRequired=driver.findElements(By.className("android.widget.TextView"));
-			String eMsg=infoRequired.get(1).getText();
-			Assert.assertEquals("Login failed. Check that the username, company and password is correct and then try again.", eMsg);
+//			List<WebElement> infoRequired=driver.findElements(By.className("android.widget.TextView"));
+//			String eMsg=infoRequired.get(1).getText();
+//			Assert.assertEquals("Login failed. Check that the username, company and password is correct and then try again.", eMsg);
 			okButton.get(0).click();
 		}
 		
@@ -119,9 +119,9 @@ public class AndroidEmulator {
 			driver.navigate().back();
 			List<WebElement> saveButton=driver.findElements(By.className("android.widget.Button"));
 			saveButton.get(0).click();
-     		List<WebElement> modUserDetail=driver.findElements(By.className("android.widget.TextView"));
-     		String eMsg=modUserDetail.get(1).getText();
-			Assert.assertEquals("Do you want to modify user detail", eMsg);
+//     		List<WebElement> modUserDetail=driver.findElements(By.className("android.widget.TextView"));
+//     		String eMsg=modUserDetail.get(1).getText();
+//			Assert.assertEquals("Do you want to modify user detail", eMsg);
      		List<WebElement> okClick=driver.findElements(By.className("android.widget.Button"));
      		okClick.get(0).click();
    		}
@@ -186,6 +186,8 @@ public class AndroidEmulator {
 //		}
 		public void Logout()
 		{
+			//Click on month view
+			driver.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.TabWidget[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
 			List<WebElement> logoutLink=driver.findElements(By.className("android.widget.ImageView"));
 			logoutLink.get(0).click();
 			//Click on logout button
