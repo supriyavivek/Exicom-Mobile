@@ -3,6 +3,7 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="se.copernicus.Android.AndroidSimulator">
         <methods>
           <include name="TearDown"/>
@@ -10,6 +11,15 @@
           <include name="MartensTest"/>
         </methods>
       </class> <!-- se.copernicus.Android.AndroidSimulator -->
+=======
+      <class name="se.copernicus.IOS.IOSSimulator">
+        <methods>
+          <include name="Login"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- se.copernicus.IOS.IOSSimulator -->
+>>>>>>> parent of 95322b3... IOS script updated
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
