@@ -27,7 +27,7 @@ public class IOSSimulator {
 	capabilities.setCapability("app", "/Users/indpro/Desktop/cTimeSheet/cTimeSheet Device/cTimeSheet.app");
 	capabilities.setCapability("BundleID", "se.exicom.timereport");
 	capabilities.setCapability("UDID", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
-	wd= new RemoteWebDriver(new URL("http://127.0.0.1:4725/wd/hub"), capabilities);
+	wd= new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 	wd.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
 	}
 	

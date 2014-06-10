@@ -79,3 +79,11 @@
 
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
 >>>>>>> FETCH_HEAD
+
+CopernicusMobile/test-output/
+*.plist
+.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml
+
+CopernicusMobile/bin/
+
+CopernicusMobile/cTimeSheetSimulator.app/Info.plist

@@ -29,7 +29,7 @@ public class AndroidSimulator {
 			capabilities.setCapability("app", "//CopernicusMobileWorkspace/CTimeSheet_v1.9.6_test.apk");
 			capabilities.setCapability("appPackage", "se.copernicus");
 			capabilities.setCapability("appActivity", ".SplashScreenPage");
-			driver = new RemoteWebDriver(new URL("http://192.168.1.84:4725/wd/hub"), capabilities);
+			driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);     
 		}
 		
