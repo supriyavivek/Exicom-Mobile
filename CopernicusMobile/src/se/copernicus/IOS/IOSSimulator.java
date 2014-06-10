@@ -40,7 +40,7 @@ public class IOSSimulator {
 	public void Login() throws Exception {
 		//Test case to login
 		LoginScript();
-					
+						
 		//Test case to Add time report
 		AddTimeReport();
 
@@ -56,12 +56,12 @@ public class IOSSimulator {
 		
 	}
 	
-	public void LoginScript()
+	public void LoginScript() throws Exception
 	{
 		List<WebElement> staticText = driver.findElements(By.className("UIAStaticText"));
 		staticText.get(1).click();
 		//Click on Add user link
-		((JavascriptExecutor)driver).executeScript("mobile: tap", new HashedMap() {{ put("tapCount", 1); put("touchCount", 1); put("duration", 0.5); put("x", 47); put("y", 141); }});
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")).click();
 		List<WebElement> textField=driver.findElements(By.className("UIATextField"));
 		textField.get(1).sendKeys("10");
@@ -69,11 +69,42 @@ public class IOSSimulator {
 		textField.get(4).sendKeys("192.168.1.109:7070");
 		driver.findElement(By.xpath("//UIAWindow[2]/UIAToolbar[1]/UIAButton[2]")).click();
 		driver.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]")).click();
+		InvalidLogin();
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")).click();
+		InvalidPassword();
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIASecureTextField[1]/UIAStaticText[1]")).click();
+		driver.findElement(By.name("Clear text")).click();
 		WebElement password=driver.findElements(By.className("UIASecureTextField")).get(0);
 		password.sendKeys("password");
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAToolbar[1]/UIAButton[2]")).click();
 		//click on login button
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[4]/UIAStaticText[1]")).click();
+	}
+	
+	public void InvalidLogin()
+	{
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")).click();
+		//Add duplicate user
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]")).click();
+		List<WebElement> textField=driver.findElements(By.className("UIATextField"));
+		textField.get(1).sendKeys("10");
+		textField.get(2).sendKeys("1000");
+		textField.get(4).sendKeys("192.168.1.109:7070");
+		driver.findElement(By.xpath("//UIAWindow[2]/UIAToolbar[1]/UIAButton[2]")).click();
+		driver.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]")).click();
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[3]/UIAAlert[1]/UIATableView[1]/UIATableCell[1]")).click();
+	}
+	
+	public void InvalidPassword()
+	{
+		WebElement password=driver.findElements(By.className("UIASecureTextField")).get(0);
+		password.sendKeys("WrongPassword");
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAToolbar[1]/UIAButton[2]")).click();
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[4]/UIAStaticText[1]")).click();
+		//Alert pop up for wrong password
+		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[3]/UIAAlert[1]/UIATableView[1]/UIATableCell[1]")).click();
 	}
 	
 	public void AddTimeReport()
@@ -84,8 +115,6 @@ public class IOSSimulator {
 		custProjActivityLink.get(0).click();
 		//Select the first customer
 		WebElement customerName = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-		String firstCustomer = customerName.getText();
-		Reporter.log(firstCustomer, true);
 		customerName.click();
 		WebElement task=driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
 		task.click();
@@ -102,15 +131,15 @@ public class IOSSimulator {
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]")).click();
 		//Add hours and save report
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[6]/UIATextField[1]/UIATextField[1]")).click();
-		((JavascriptExecutor)driver).executeScript("mobile: tap", new HashedMap() {{ put("tapCount", 1); put("touchCount", 1); put("duration", 0.695); put("x", 104); put("y", 519); }});
-		((JavascriptExecutor)driver).executeScript("mobile: tap", new HashedMap() {{ put("tapCount", 1); put("touchCount", 1); put("duration", 0.5); put("x", 218); put("y", 516); }});
+		driver.findElement(By.name("0. 1 of 25")).sendKeys("4");
+		driver.findElement(By.name("0. 1 of 4")).sendKeys("50");
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]")).click();
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]")).click();
 	}
 	
 	public void EditTimeReport() throws Exception
 	{
-		driver.findElement(By.name("man2176/, 1090/, 2,50")).click();
+		driver.findElement(By.name("man2176/, 1090/, 4,50")).click();
 		//click on comment link
 		driver.findElement(By.xpath("//UIATableCell[4]/UIAStaticText[1]")).click();
 		WebElement comment=driver.findElements(By.className("UIATextView")).get(0);
@@ -119,8 +148,8 @@ public class IOSSimulator {
 		//Add hours and save report
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[5]/UIAStaticText[1]")).click();
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[5]/UIATextField[1]/UIATextField[1]")).click();
-		((JavascriptExecutor)driver).executeScript("mobile: tap", new HashedMap() {{ put("tapCount", 1); put("touchCount", 1); put("duration", 0.5); put("x", 104); put("y", 520); }});
-		((JavascriptExecutor)driver).executeScript("mobile: tap", new HashedMap() {{ put("tapCount", 1); put("touchCount", 1); put("duration", 0.5); put("x", 221); put("y", 494); }});
+		driver.findElement(By.name("4. 5 of 25")).sendKeys("7");
+		driver.findElement(By.name("50. 3 of 4")).sendKeys("75");
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]")).click();
 		//Delayed the process so that the data gets updated
 		Thread.sleep(2000);
@@ -129,7 +158,7 @@ public class IOSSimulator {
 	
 	public void DeleteTimeReport()
 	{
-		driver.findElement(By.name("man2176/, 1090/, 4,75")).click();
+		driver.findElement(By.name("man2176/, 1090/, 7,75")).click();
 		//click on "Delete time report row" button
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[5]/UIAStaticText[1]")).click();
 		driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIAButton[2]")).click();
