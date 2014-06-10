@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <qualifiedTypeNameHistroy/>
+=======
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.openqa.selenium.remote.RemoteWebDriver"/>
+<fullyQualifiedTypeName name="org.testng.Assert"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedCondition"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="io.selendroid.SelendroidDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
+<fullyQualifiedTypeName name="io.selendroid.SelendroidKeys"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.internal.seleniumemulation.KeyEvent"/>
+<fullyQualifiedTypeName name="android.view.KeyEvent"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
+<fullyQualifiedTypeName name="org.testng.Reporter"/>
+</qualifiedTypeNameHistroy>
+>>>>>>> FETCH_HEAD
