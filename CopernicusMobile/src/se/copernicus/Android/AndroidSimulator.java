@@ -24,12 +24,12 @@ public class AndroidSimulator {
 		public void SetUp() throws Exception {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability("appium-version", "1.0");
-			capabilities.setCapability("platformName", "Android");
-			capabilities.setCapability("platformVersion", "4.3");
+			capabilities.setCapability("platformName", "jellybean");
+			capabilities.setCapability("platformVersion", "4.2");
 			capabilities.setCapability("app", "//CopernicusMobileWorkspace/CTimeSheet_v1.9.6_test.apk");
 			capabilities.setCapability("appPackage", "se.copernicus");
 			capabilities.setCapability("appActivity", ".SplashScreenPage");
-			driver = new RemoteWebDriver(new URL("http://192.168.1.84:4725/wd/hub"), capabilities);
+			driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);     
 		}
 		
@@ -39,46 +39,61 @@ public class AndroidSimulator {
 		}
 		
 		@Test
+		public void MartensTest() throws Exception{
+			Login();
+			AddTimeReport();
+			DeleteTimeReport();
+			Logout();
+			
+		}
+		
+		@Test
 		public void Login() throws Exception {
 			//Login
 			driver.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
+			//Click user
 			driver.findElement(By.className("android.widget.ImageView")).click();
+			//Click new user
 			driver.findElement(By.className("android.widget.ImageView")).click();
-			List<WebElement> editText=driver.findElements(By.className("android.widget.EditText"));
-			editText.get(0).sendKeys("10");
-			driver.navigate().back();
+			//Find textboxes
+			List<WebElement> formList=driver.findElements(By.className("android.widget.EditText"));
+			//write in textbox #1 (user) !!Already got focus!!
+			formList.get(0).sendKeys("600");
 			
 			//Require Field Validation method
 			RequiredFieldValidation();
 			
-			editText.get(1).click();
-			editText.get(1).sendKeys("1000");
+			//Click textbox  #2 (company) to get focus
+			formList.get(1).click();	
+			//Send write to textbox 2#
+			formList.get(1).sendKeys("utb18");
 			
-			//continue login with incorrect url value
-			IncorrectUrl();
-///			driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
-//			WebElement pass=driver.findElements(By.className("android.widget.EditText")).get(0);
-//			pass.sendKeys("password");
-//			List<WebElement> ButtonClick=driver.findElements(By.className("android.widget.Button"));
-//			ButtonClick.get(0).click();
-//			ButtonClick.get(0).click();
-//			WebDriverWait wait=new WebDriverWait(driver, 120);
-//			List<WebElement> okButton=driver.findElements(By.className("android.widget.Button"));
-//			wait.until(ExpectedConditions.visibilityOfAllElements(okButton));
-//			List<WebElement> infoRequired=driver.findElements(By.className("android.widget.TextView"));
-//	     	String eMsg=infoRequired.get(1).getText();
-//			Assert.assertEquals("Cannot find any server with the given URL. Check that the URL is correct and that the server is running and then try again", eMsg);
-//			okButton.get(0).click();
-//			driver.findElement(By.className("android.widget.ImageView")).click();
-//     		driver.findElement(By.className("android.widget.ImageView")).click();
+			//Click textbox  #3 (url) to get focus
+			formList.get(2).click();
+			//Send write to textbox 2#
+			formList.get(2).sendKeys("mobiletest.exicom.se");
+			
+			//Get bottom bar
+			List<WebElement> bottomBar=driver.findElements(By.className("android.widget.Button"));
+			//Click save
+			bottomBar.get(0).click();
      		
-     		//Edit User Details method
-     		//EditUserLoginDetails();
+			//Click password
 			driver.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
-     		editText.get(0).sendKeys("password");
-			List<WebElement> Button=driver.findElements(By.className("android.widget.Button"));
-			Button.get(0).click();
-			Button.get(0).click();
+     		
+			//write to textbox(password) !!Already foucs!!
+			formList.get(0).sendKeys("600");
+			
+			//Get alertButtons
+			List<WebElement> popupButtons=driver.findElements(By.className("android.widget.Button"));
+			
+			//Click OK
+			popupButtons.get(0).click();
+			
+			//Get bottom bar
+			List<WebElement> loginBottomBar=driver.findElements(By.className("android.widget.Button"));
+			//Click Login
+			loginBottomBar.get(0).click();
 			
 			//Add Time Report
 			AddTimeReport();
@@ -131,6 +146,8 @@ public class AndroidSimulator {
      		okClick.get(0).click();
      		saveButton.get(0).click();
 		}
+		
+		//Adding a time report on the XX with XXh
 		public void AddTimeReport()
 		{
 		List<WebElement> week = driver.findElements(By.className("android.widget.Button"));
@@ -190,6 +207,7 @@ public class AndroidSimulator {
 			driver.findElement(By.xpath("//android.view.View[1]/android.widget.TextView[1]")).click();
 			driver.findElement(By.className("android.widget.Button")).click();
 		}
+		
 		public void Logout()
 		{
 			List<WebElement> logoutLink=driver.findElements(By.className("android.widget.ImageView"));

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;IOSSimulator.java&apos; to &apos;CopernicusMobile/src/se.copernicus.IOS&apos;&#x0A;- Original project: &apos;CopernicusMobile&apos;&#x0A;- Destination element: &apos;CopernicusMobile/src/se.copernicus.IOS&apos;&#x0A;- Original element: &apos;se.copernicus.Android.IOSSimulator.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;se.copernicus.IOS" element1="/src&lt;se.copernicus.Android{IOSSimulator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1400818762507" units="1" version="1.0"/>
-</session>

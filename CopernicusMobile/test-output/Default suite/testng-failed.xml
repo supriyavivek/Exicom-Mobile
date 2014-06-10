@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="se.copernicus.Android.AndroidSimulator">
+        <methods>
+          <include name="TearDown"/>
+          <include name="SetUp"/>
+          <include name="MartensTest"/>
+        </methods>
+      </class> <!-- se.copernicus.Android.AndroidSimulator -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
