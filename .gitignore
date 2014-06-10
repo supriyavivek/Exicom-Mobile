@@ -87,3 +87,6 @@ CopernicusMobile/test-output/
 CopernicusMobile/bin/
 
 CopernicusMobile/cTimeSheetSimulator.app/Info.plist
+
+.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+.metadata/.plugins/

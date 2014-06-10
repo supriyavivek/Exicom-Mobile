@@ -25,7 +25,7 @@ public class AndroidSimulator {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability("appium-version", "1.0");
 			capabilities.setCapability("platformName", "Android");
-			capabilities.setCapability("platformVersion", "4.3");
+			capabilities.setCapability("platformVersion", "4.4");
 			capabilities.setCapability("app", "//CopernicusMobileWorkspace/CTimeSheet_v1.9.6_test.apk");
 			capabilities.setCapability("appPackage", "se.copernicus");
 			capabilities.setCapability("appActivity", ".SplashScreenPage");
@@ -45,14 +45,14 @@ public class AndroidSimulator {
 			driver.findElement(By.className("android.widget.ImageView")).click();
 			driver.findElement(By.className("android.widget.ImageView")).click();
 			List<WebElement> editText=driver.findElements(By.className("android.widget.EditText"));
-			editText.get(0).sendKeys("10");
+			editText.get(0).sendKeys("600");
 			driver.navigate().back();
 			
 			//Require Field Validation method
 			RequiredFieldValidation();
 			
 			editText.get(1).click();
-			editText.get(1).sendKeys("1000");
+			editText.get(1).sendKeys("utb18");
 			
 			//continue login with incorrect url value
 			IncorrectUrl();
@@ -75,7 +75,8 @@ public class AndroidSimulator {
      		//Edit User Details method
      		//EditUserLoginDetails();
 			driver.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
-     		editText.get(0).sendKeys("password");
+     		editText.get(0).sendKeys("600");
+     		driver.navigate().back();
 			List<WebElement> Button=driver.findElements(By.className("android.widget.Button"));
 			Button.get(0).click();
 			Button.get(0).click();
@@ -107,7 +108,7 @@ public class AndroidSimulator {
 		public void IncorrectUrl()
 		{
 			List<WebElement> user=driver.findElements(By.className("android.widget.EditText"));
-			user.get(2).sendKeys("192.168.1.109:7070");
+			user.get(2).sendKeys("mobiletest.exicom.se");
 			driver.navigate().back();
 			List<WebElement> saveButton=driver.findElements(By.className("android.widget.Button"));
 			saveButton.get(0).click();
