@@ -82,5 +82,14 @@
 
 
 
+<<<<<<< HEAD
+.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+.metadata/.plugins/
+
+.metadata/.plugins/org.eclipse.debug.core/.launches/AndroidSimulator.login.launch
+=======
 
 CopernicusMobile/src/se/copernicus/Android/AndroidSimulator.java
+>>>>>>> FETCH_HEAD
+
+CopernicusMobile/bin/
