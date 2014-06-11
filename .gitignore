@@ -78,17 +78,16 @@
 .metadata/.plugins/org.eclipse.core.resources/.history/63/200110169ceb00131ccbb48fc536c96d
 
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
->>>>>>> FETCH_HEAD
 
-CopernicusMobile/test-output/
-*.plist
-.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml
 
-CopernicusMobile/bin/
 
-CopernicusMobile/cTimeSheetSimulator.app/Info.plist
 
+<<<<<<< HEAD
 .metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
 .metadata/.plugins/
 
 .metadata/.plugins/org.eclipse.debug.core/.launches/AndroidSimulator.login.launch
+=======
+
+CopernicusMobile/src/se/copernicus/Android/AndroidSimulator.java
+>>>>>>> FETCH_HEAD
