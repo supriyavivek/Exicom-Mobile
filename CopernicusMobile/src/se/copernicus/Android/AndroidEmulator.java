@@ -3,13 +3,11 @@ package se.copernicus.Android;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.net.URL;
-
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.*;
-import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -127,33 +125,33 @@ public class AndroidEmulator {
    		}
 		public void AddTimeReport()
 		{
-		WebDriverWait wait=new WebDriverWait(driver, 240);
-		//click on "+" symbol to add time report
-		List<WebElement> addTimeReport=driver.findElements(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.ImageView[1]"));
-		wait.until(ExpectedConditions.visibilityOfAllElements(addTimeReport));
-		addTimeReport.get(0).click();
-		//click on "customer,Project and Activity" text
-		driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]")).click();
-		List<WebElement> radioButton=driver.findElements(By.className("android.widget.RadioButton"));
-		radioButton.get(0).click();
-		List<WebElement> imageView = driver.findElements(By.className("android.widget.ImageView"));
-		imageView.get(0).click();
-		radioButton.get(1).click();
-		imageView.get(1).click();
-		radioButton.get(1).click();
-		List<WebElement> editText=driver.findElements(By.className("android.widget.EditText"));
-		editText.get(0).click();
-		editText.get(0).sendKeys("Comment");
-		driver.navigate().back();
-		//Click on "Hours" button
-		driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[6]/android.widget.Button[1]")).click();
-		List<WebElement> reportTime = driver.findElements(By.className("android.widget.ImageButton"));
-		reportTime.get(2).click();
-		reportTime.get(2).click();
-		reportTime.get(4).click();
-		List<WebElement> Buttons=driver.findElements(By.className("android.widget.Button"));
-		Buttons.get(0).click();
-		Buttons.get(1).click();
+			WebDriverWait wait=new WebDriverWait(driver, 240);
+			//click on "+" symbol to add time report
+			List<WebElement> addTimeReport=driver.findElements(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.ImageView[1]"));
+			wait.until(ExpectedConditions.visibilityOfAllElements(addTimeReport));
+			addTimeReport.get(0).click();
+			//click on "customer,Project and Activity" text
+			driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]")).click();
+			List<WebElement> radioButton=driver.findElements(By.className("android.widget.RadioButton"));
+			radioButton.get(0).click();
+			List<WebElement> imageView = driver.findElements(By.className("android.widget.ImageView"));
+			imageView.get(0).click();
+			radioButton.get(1).click();
+			imageView.get(1).click();
+			radioButton.get(1).click();
+			List<WebElement> editText=driver.findElements(By.className("android.widget.EditText"));
+			editText.get(0).click();
+			editText.get(0).sendKeys("Comment");
+			driver.navigate().back();
+			//Click on "Hours" button
+			driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[6]/android.widget.Button[1]")).click();
+			List<WebElement> reportTime = driver.findElements(By.className("android.widget.ImageButton"));
+			reportTime.get(2).click();
+			reportTime.get(2).click();
+			reportTime.get(4).click();
+			List<WebElement> Buttons=driver.findElements(By.className("android.widget.Button"));
+			Buttons.get(0).click();
+			Buttons.get(1).click();
 		}
 
 		public void EditTimeReport()
@@ -199,4 +197,4 @@ public class AndroidEmulator {
 			List<WebElement> okButton=driver.findElements(By.className("android.widget.Button"));
 			okButton.get(0).click();
 		}
-}
+} 
