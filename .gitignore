@@ -79,3 +79,20 @@
 
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
 >>>>>>> FETCH_HEAD
+
+CopernicusMobile/test-output/
+
+CopernicusMobile/bin/
+
+.metadata/.plugins/
+
+.metadata/.plugins/org.eclipse.debug.core/
+
+.metadata/.plugins/org.eclipse.debug.core/.launches/
+.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+
+.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml
+
+.metadata/.plugins/org.eclipse.debug.core/.launches/IOSSimulator.launch
+
+.metadata/.plugins/org.eclipse.debug.core/.launches/AndroidSimulator.login.launch
