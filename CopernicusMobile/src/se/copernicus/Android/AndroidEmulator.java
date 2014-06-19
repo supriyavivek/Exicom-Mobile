@@ -16,7 +16,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
 public class AndroidEmulator {
 	AppiumDriver wd=null;
 		
@@ -172,6 +171,10 @@ public class AndroidEmulator {
 //		public void DeleteTimeReport()
 //		{
 //			driver.findElement(By.name("1090/")).click();
+//			   keyEventTest() 
+//		    driver.sendKeyEvent(AndroidKeyCode.HOME);
+		
+	//	driver.sendKeyEvent(AndroidKeyCode.HOME);
 //			//trying to get the option menu but the code is not completed
 //			driver.findElement(By.xpath("//android.view.View[1]/android.widget.TextView[1]")).click();
 //			driver.findElement(By.className("android.widget.Button")).click();
