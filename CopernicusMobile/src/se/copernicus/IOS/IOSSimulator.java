@@ -3,7 +3,6 @@ package se.copernicus.IOS;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,20 +14,17 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-/**
- * 
- * @author indpro
- * @see ssdsdsds
- *
- */
+
 public class IOSSimulator
 {
 	WebDriver wd=null;
 	
-	//Precondition for test1
-	// 1) A Event should be added in current date ["New event", "bang", "1,00"]
-	
-	@BeforeMethod
+	/*
+	Precondition for test1
+	1) A Event should be added in current date ["New event", "bang", "1,00"]
+	*/
+
+    @BeforeMethod
 	public void setUp() 
 	{
 	try {
@@ -92,37 +88,37 @@ public class IOSSimulator
 		Logout();
 	}
 	
-	//Precondition
-	// 1) Goto settings by pressing "windows+shift+h" and clicking on settings app
-	// 2) Find cTimeSheet and click on it.
-	// 3) On "Private comment", "Adjusted hours", and "Price deviation".
-	// 4) Change "Time factor" value to 5 by clicking on it.
-	// 5) Off "Show number".
-	// 6) Click on "calendar search" and select Location.
-	
-//	@Test
-//	public void TestScript2() {
-//		//Test case to login and verify fields
-//		LoginValidation();
-//		Login();
-//		
-//		//Test case to Add time report with cTimeSheet settings
-//		AddTimeReportWithSettings();
-//		
-//		//Test case to Edit time report
-//		EditTimeReportWithSettings();
-//			
-//		//Test case to Delete time report
-//		DeleteTimeReportWithSettings();
-//		
-//		//Test case to Logout time report
-//		Logout();
-//	}
-	
-	public void LoginFieldsValidation() 
+	/*
+	Precondition for test2
+	1) Goto settings by pressing "windows+shift+h" and clicking on settings app
+	2) Find cTimeSheet and click on it.
+	3) On "Private comment", "Adjusted hours", and "Price deviation".
+	4) Change "Time factor" value to 5 by clicking on it.
+	5) Off "Show number".
+	6) Click on "calendar search" and select Location.
+	@Test
+	public void TestScript2() {
+	//Test case to login and verify fields
+	LoginValidation();
+	Login();
+
+	//Test case to Add time report with cTimeSheet settings
+	AddTimeReportWithSettings();
+
+	//Test case to Edit time report
+	EditTimeReportWithSettings();
+
+	//Test case to Delete time report
+	DeleteTimeReportWithSettings();
+
+	//Test case to Logout time report
+	Logout();
+	}
+	*/
+
+    public void LoginFieldsValidation()
 	{
 		try {
-			//System.out.println("Login script");
 			Reporter.log("Login script");
 			
 				List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
@@ -141,8 +137,8 @@ public class IOSSimulator
 				keyboardDoneButton.get(1).click();
 				List<WebElement> navigationDoneButton = wd.findElements(By.name("Done"));
 				navigationDoneButton.get(0).click();
-								
-			System.out.println("Login successfull");
+
+            Reporter.log("Login successfull");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -153,7 +149,7 @@ public class IOSSimulator
 	public void InvalidLogin()
 	{
 		try {
-			System.out.println("Invalid Login script");
+            Reporter.log("Invalid Login script");
 				
 				//Script followed by LoginFieldsValidation() method
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
@@ -172,10 +168,9 @@ public class IOSSimulator
 				keyDoneButton.get(1).click();
 				List<WebElement> navigationDoneButton = wd.findElements(By.name("Done"));
 				navigationDoneButton.get(0).click();
-				Alert alert=wd.switchTo().alert();
-				alert.accept();
-			
-			System.out.println("Invalid Login tested Successfully");
+                AcceptAlert(wd);
+
+            Reporter.log("Invalid Login tested Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -185,12 +180,12 @@ public class IOSSimulator
 	public void DeleteUser()
 	{
 		try {
-			System.out.println("Delete User script");
+            Reporter.log("Delete User script");
 			
 				//Script followed by LoginFieldsValidation() method
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
 				List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
-				clickUserLink.get(1).click();
+				clickUserLink.get(0).click();
 				Thread.sleep(3000);
 				//Click on Add user link
 				WebElement clickAddUserLink=wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
@@ -210,14 +205,13 @@ public class IOSSimulator
 				WebElement ClickSelectedUser=wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAButton[1]"));
 				ClickSelectedUser.click();
 				wd.findElement(By.name("Reset")).click();
-				Alert alert=wd.switchTo().alert();
-				alert.accept();
+                AcceptAlert(wd);
 				wd.findElement(By.name("Delete user")).click();
-				alert.accept();
+				AcceptAlert(wd);
 				WebElement clickExistingUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
 				clickExistingUser.click();
-			
-			System.out.println("Delete User tested Successfully");
+
+            Reporter.log("Delete User tested Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -227,7 +221,7 @@ public class IOSSimulator
 	public void InvalidPassword()
 	{
 		try {
-			System.out.println("Invalid Password script");
+            Reporter.log("Invalid Password script");
 			
 				//Script followed by LoginFieldsValidation() method
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
@@ -240,10 +234,9 @@ public class IOSSimulator
 				//Alert pop up for wrong password
 				WebDriverWait wait=new WebDriverWait(wd, 240);
 				wait.until(ExpectedConditions.alertIsPresent());
-				Alert alert=wd.switchTo().alert();
-				alert.accept();
-			
-			System.out.println("Invalid Password tested Successfully");
+                AcceptAlert(wd);
+
+            Reporter.log("Invalid Password tested Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -253,7 +246,7 @@ public class IOSSimulator
 	public void Login()
 	{
 		try {
-			System.out.println("Login By entering correct password");
+            Reporter.log("Login By entering correct password");
 			
 				//Script followed by LoginFieldsValidation() method
 				WebElement password=wd.findElements(By.className("UIASecureTextField")).get(0);
@@ -264,8 +257,8 @@ public class IOSSimulator
 				WebElement loginButton = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
 				Assert.assertTrue(loginButton.isDisplayed(), "Login");
 				loginButton.click();
-				
-			System.out.println("Login successfull");
+
+            Reporter.log("Login successfull");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -275,7 +268,7 @@ public class IOSSimulator
 	public void SearchCompany() 
 	{
 		try {
-			System.out.println("Search script");
+            Reporter.log("Search script");
 			
 				//Prerequisite login script should be executed
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
@@ -307,8 +300,8 @@ public class IOSSimulator
 				wd.findElement(By.name("Cancel")).click();
 				WebElement cancelButton = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
 				cancelButton.click();
-		
-			System.out.println("Search script tested Successfully");
+
+            Reporter.log("Search script tested Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -318,7 +311,7 @@ public class IOSSimulator
 	public void AddTimeReport() 
 	{
 		try {
-			System.out.println("Add Time Report script");
+            Reporter.log("Add Time Report script");
 			
 				//Prerequisite login script should be executed
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
@@ -373,8 +366,8 @@ public class IOSSimulator
 				//click back to day view
 				WebElement dayView = wd.findElement(By.xpath("//UIASegmentedControl[1]/UIAButton[1]"));
 				dayView.click();
-				
-			System.out.println("Time Report Added Successfully");
+
+            Reporter.log("Time Report Added Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -384,7 +377,7 @@ public class IOSSimulator
 	public void EditTimeReport() 
 	{
 		try {
-			System.out.println("Edit Time Report script");
+            Reporter.log("Edit Time Report script");
 				
 				//Script followed by AddTimeReport
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
@@ -408,8 +401,8 @@ public class IOSSimulator
 				clickonDone.click();
 				WebElement saveEditedTimeReport = wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[3]"));
 				saveEditedTimeReport.click();
-		
-			System.out.println("Time Report Edited Successfully");
+
+            Reporter.log("Time Report Edited Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -419,7 +412,7 @@ public class IOSSimulator
 	public void DeleteTimeReport()
 	{
 		try {
-			System.out.println("Delete Time Report script");
+            Reporter.log("Delete Time Report script");
 			
 				//Depends on Add and Edit time report
 				wd.findElement(By.name("man2176/, 1090/, 7,75")).click();
@@ -427,10 +420,9 @@ public class IOSSimulator
 				wd.findElement(By.name("Contact project manager")).click();
 				wd.findElement(By.name("Cancel")).click();
 				wd.findElement(By.name("Delete time report row")).click();
-				Alert alert=wd.switchTo().alert();
-				alert.accept();
-						
-			System.out.println("Time Report Deleted Successfully");
+                AcceptAlert(wd);
+
+            Reporter.log("Time Report Deleted Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -440,7 +432,7 @@ public class IOSSimulator
 	public void AddEventTimeReport() 
 	{
 		try {
-			System.out.println("Add Event Time Report script");
+            Reporter.log("Add Event Time Report script");
 			
 				WebElement clickomCalendar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAToolbar[1]/UIAButton[2]"));
 				clickomCalendar.click();
@@ -463,8 +455,8 @@ public class IOSSimulator
 				wd.findElement(By.name("man2176/, 1090/, 1,00")).click();
 				wd.findElement(By.name("Delete time report row")).click();
 				wd.findElement(By.name("OK")).click();
-				
-			System.out.println("Event Time Report Added Successfully");
+
+            Reporter.log("Event Time Report Added Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -473,7 +465,7 @@ public class IOSSimulator
 
 	public void AddTimeReportWithSettings() {
 		try {
-			System.out.println("Add Time Report script");
+            Reporter.log("Add Time Report script");
 			
 				//click on '+' symbol
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
@@ -523,8 +515,8 @@ public class IOSSimulator
 				wd.findElement(By.xpath("//UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]")).click();
 				List<WebElement> navigationDoneButton = wd.findElements(By.name("Done"));
 				navigationDoneButton.get(0).click();
-				
-			System.out.println("Time Report With App Settings Added Successfully");
+
+            Reporter.log("Time Report With App Settings Added Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -534,7 +526,7 @@ public class IOSSimulator
 	public void EditTimeReportWithSettings() 
 	{
 		try {
-			System.out.println("Edit Time Report script");
+            Reporter.log("Edit Time Report script");
 			
 				wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
 				wd.findElement(By.name("A&M R/, A&M Records, 8,50")).click();
@@ -553,8 +545,8 @@ public class IOSSimulator
 				wd.findElement(By.xpath("//UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]")).click();
 				//Delayed the process so that the data gets updated
 				wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[3]")).click();
-		
-			System.out.println("Time Report Edited Successfully");
+
+            Reporter.log("Time Report Edited Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -564,13 +556,14 @@ public class IOSSimulator
 	public void DeleteTimeReportWithSettings()
 	{
 		try {
-			System.out.println("Delete Time Report script");
+            Reporter.log("Delete Time Report script");
 			
 				wd.findElement(By.name("A&M R/, A&M Records, 4,05")).click();
 				//click on "Delete time report row" button
 				wd.findElement(By.name("Delete time report row")).click();
 				wd.findElement(By.name("OK")).click();
-			System.out.println("Time Report Deleted Successfully");
+
+            Reporter.log("Time Report Deleted Successfully");
 			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -580,7 +573,8 @@ public class IOSSimulator
 	public void ValidateMissingHoursAndSubmit()
 	{
 		try {
-		
+            Reporter.log("Validate Missing Hours and Submit time report");
+
 				WebElement selectMenu = wd.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
 				selectMenu.click();
 				wd.findElement(By.name("Missing hours")).click();
@@ -595,10 +589,11 @@ public class IOSSimulator
 				wd.findElement(By.name("Submit time report")).click();
 				if (ExpectedConditions.alertIsPresent() != null)
 				{
-				Alert alert=wd.switchTo().alert();
-				alert.accept();
+                AcceptAlert(wd);
 				wd.findElement(By.name("Cancel")).click();	
 				}
+
+            Reporter.log("Validated Missing Hours successfully");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -607,7 +602,8 @@ public class IOSSimulator
 	public void ValidateContactStaff()
 	{
 		try {
-			
+            Reporter.log("Validate Contact Staff");
+
 				WebElement selectMenuOption=wd.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
 				selectMenuOption.click();
 				wd.findElement(By.name("Contact staff")).click();
@@ -624,7 +620,8 @@ public class IOSSimulator
 				wd.findElement(By.name("OK")).click();
 				Thread.sleep(2000);
 				wd.findElement(By.name("Back")).click();
-		
+
+            Reporter.log("Validated Contact Staff successfully");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -633,21 +630,25 @@ public class IOSSimulator
 	public void Logout()
 	{
 		try {
-			System.out.println("Logout script");
+            Reporter.log("Logout script");
 			
 				//Click on the bar button to select logout link
 				WebElement selectMenuBar = wd.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
 				selectMenuBar.click();
 				wd.findElement(By.name("Logout")).click();
-				Alert alert=wd.switchTo().alert();
-				alert.accept();
-				
-			System.out.println("Logout tested Successfully");
+				AcceptAlert(wd);
+
+            Reporter.log("Logout tested Successfully");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	
+
+    public void AcceptAlert(WebDriver driver)
+    {
+        Alert alert=wd.switchTo().alert();
+        alert.accept();
+    }
 	
 }
 
