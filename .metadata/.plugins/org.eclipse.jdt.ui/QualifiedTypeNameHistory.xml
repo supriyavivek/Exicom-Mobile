@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="org.apache.commons.collections.map.HashedMap"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.interactions.touch.TouchActions"/>
-<fullyQualifiedTypeName name="io.appium.java_client.AppiumDriver"/>
 <fullyQualifiedTypeName name="io.appium.java_client.MobileDriverIOSTest"/>
 <fullyQualifiedTypeName name="io.appium.java_client.MobileDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.remote.DesiredCapabilities"/>
@@ -55,4 +54,9 @@
 <fullyQualifiedTypeName name="org.testng.Reporter"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="io.appium.java_client.AppiumDriver"/>
+<fullyQualifiedTypeName name="org.apache.http.impl.client.DefaultHttpClient"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
 </qualifiedTypeNameHistroy>

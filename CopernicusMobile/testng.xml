@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestSuite" parallel="none">
-  <test name="IOSTesting">
-    <classes>
-      <class name="se.copernicus.IOS.IOSSimulator"/>
-      </classes>
-  </test> <!-- IOSTesting -->
-</suite> <!-- TestSuite -->

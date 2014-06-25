@@ -14,3 +14,9 @@ CopernicusMobile/bin/
 *.tree
 
 
+
+CopernicusMobile/target/surefire-reports/emailable-report.html
+
+*.png
+
+*.nib
