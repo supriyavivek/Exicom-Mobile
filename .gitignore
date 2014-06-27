@@ -1,9 +1,10 @@
 .project
-.metadata/
 
-CopernicusMobile/test-output/
+.metadata/
 
-CopernicusMobile/bin/
+
+
+
 
 .idea/
 
@@ -15,7 +16,7 @@ CopernicusMobile/bin/
 
 
 
-CopernicusMobile/target/surefire-reports/emailable-report.html
+
 
 *.png
 
