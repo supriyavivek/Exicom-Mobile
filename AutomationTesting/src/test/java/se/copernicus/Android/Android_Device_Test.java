@@ -24,7 +24,7 @@ public class Android_Device_Test {
 			wd.quit();
 		}
 		
-		@Test
+//		@Test
 		public void Login() throws Exception {
 			//Login
 			wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
