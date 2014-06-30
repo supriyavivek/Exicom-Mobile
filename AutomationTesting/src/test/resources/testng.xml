@@ -3,7 +3,7 @@
 <suite name="TestSuite" parallel="false">
   <test name="IOSTesting">
     <classes>
-      <class name="se.copernicus.IOS.IOSSimulatorTest"/>
+      <class name="se.copernicus.Android.AndroidDeviceTest"/>
       </classes>
   </test> <!-- IOSTesting -->
 </suite> <!-- TestSuite -->
