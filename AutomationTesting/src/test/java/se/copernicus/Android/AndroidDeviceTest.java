@@ -3,7 +3,7 @@ package se.copernicus.Android;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.collections.map.HashedMap;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -56,8 +56,8 @@ public class AndroidDeviceTest {
             //Missing Time
             MissingTime();
 
-            //App Settings
-           // Settings();
+            // App Settings
+            Settings();
 
 			//Delete Time Report
 			//DeleteTimeReport();
@@ -69,7 +69,7 @@ public class AndroidDeviceTest {
        	public void RequiredFieldValidation()
 		{
             try {
-                Reporter.log("Require Field Validation Started", true);
+                Reporter.log("Require Field Validation", true);
                 wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
                 WebElement clickUserName = wd.findElement(By.className("android.widget.ImageView"));
                 clickUserName.click();
@@ -91,9 +91,9 @@ public class AndroidDeviceTest {
 		public void VerifyIncorrectData()
 		{
             try {
-                Reporter.log("Verification of Incorrect Data Started", true);
-                WebElement companyId = wd.findElements(By.className("android.widget.EditText")).get(1);
-                companyId.sendKeys("123");
+                Reporter.log("Verification of Incorrect Data", true);
+                WebElement incorrectCompanyId = wd.findElements(By.className("android.widget.EditText")).get(1);
+                incorrectCompanyId.sendKeys("123");
                 WebElement address = wd.findElements(By.className("android.widget.EditText")).get(2);
                 address.sendKeys("192.168.1.109:7070");
                 wd.navigate().back();
@@ -102,7 +102,7 @@ public class AndroidDeviceTest {
                 WebElement passwordLink = wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]"));
                 passwordLink.click();
                 WebElement password = wd.findElement(By.className("android.widget.EditText"));
-                password.sendKeys("password");
+                password.sendKeys("WrongPassword");
                 WebElement clickOk = wd.findElement(By.className("android.widget.Button"));
                 clickOk.click();
                 WebElement login = wd.findElement(By.className("android.widget.Button"));
@@ -121,15 +121,15 @@ public class AndroidDeviceTest {
 		public void EditUserDetailsAndLogin()
 		{
             try {
-                Reporter.log("Edit User Details and Login Started", true);
+                Reporter.log("Edit User Details and Login", true);
                 //Code to change user detail and verify warning message
                 wd.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
                 WebElement clickUserName=wd.findElement(By.className("android.widget.ImageView"));
                 clickUserName.click();
                 WebElement clickExistingUser =wd.findElement(By.className("android.widget.ImageView"));
                 clickExistingUser.click();
-                WebElement companyId=wd.findElements(By.className("android.widget.EditText")).get(1);
-                companyId.sendKeys("1000");
+                WebElement correctCompanyId =wd.findElements(By.className("android.widget.EditText")).get(1);
+                correctCompanyId.sendKeys("1000");
                 wd.navigate().back();
                 WebElement clickSaveButton=wd.findElement(By.className("android.widget.Button"));
                 clickSaveButton.click();
@@ -152,7 +152,7 @@ public class AndroidDeviceTest {
 		public void AddTimeReport()
 		{
             try {
-                Reporter.log("Add Time Report Started", true);
+                Reporter.log("Add Time Report", true);
                 WebDriverWait wait=new WebDriverWait(wd, 240);
                 //click on "+" symbol to add time report
                 WebElement addTimeReport=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.ImageView[1]"));
@@ -189,6 +189,8 @@ public class AndroidDeviceTest {
                 clickOK.click();
                 WebElement clickSave=wd.findElements(By.className("android.widget.Button")).get(1);
                 clickSave.click();
+                WebElement clickOnCustomerName=wd.findElement(By.name("1090/"));
+                clickOnCustomerName.isDisplayed();
                 Reporter.log("Time Report Added Successfully", true);
             } catch (Exception e) {
                 System.out.println(e);
@@ -199,7 +201,7 @@ public class AndroidDeviceTest {
 		public void EditTimeReport()
 		{
             try {
-                Reporter.log("Edit Time Report Started", true);
+                Reporter.log("Edit Time Report", true);
                 //Click on Day tab
                 WebElement dayTab=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.TabWidget[1]/android.widget.RelativeLayout[3]/android.widget.TextView[1]"));
                 dayTab.click();
@@ -243,63 +245,116 @@ public class AndroidDeviceTest {
 
         public void MissingTime()
         {
-            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.TabWidget[1]/android.widget.RelativeLayout[2]/android.widget.TextView[1]")).click();
-            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.TabWidget[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]")).click();
-            WebElement clickOnMenuBar=wd.findElements(By.className("android.widget.ImageView")).get(0);
-            clickOnMenuBar.click();
-            ((JavascriptExecutor)wd).executeScript("mobile: tap", new HashedMap() {{ put("tapCount", 1); put("touchCount", 1); put("duration", 0.5); put("x", 137); put("y", 370); }});
-            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ListView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.ImageView[1]")).click();
-            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
-            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.LinearLayout[3]/android.widget.TextView[1]")).click();
-            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.CheckBox[1]")).click();
-            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
-            wd.findElement(By.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.ListView[1]/android.widget.CheckedTextView[1]")).click();
-            wd.findElement(By.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.ListView[1]/android.widget.CheckedTextView[1]")).click();
-            List<WebElement> dayOfTheWeek=wd.findElements(By.className("android.widget.CheckedTextView"));
-            dayOfTheWeek.get(0).click();
-            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[4]/android.widget.Button[1]")).click();
+            try {
+                Reporter.log("Missing Time", true);
+//                WebElement weekTab=wd.findElement(By.name("Week"));
+//                weekTab.click();
+//                WebElement monthTab=wd.findElement(By.name("Month"));
+//                monthTab.click();
+                WebElement clickOnMenuBar = wd.findElements(By.className("android.widget.ImageView")).get(0);
+                clickOnMenuBar.click();
+                WebElement missingHours=wd.findElement(By.name("Missing Time"));
+                missingHours.click();
+                WebDriverWait wait=new WebDriverWait(wd, 240);
+                WebElement missingTime = wd.findElements(By.className("android.widget.ImageView")).get(1);
+                wait.until(ExpectedConditions.elementToBeClickable(missingTime));
+                missingTime.click();
+                WebElement clickOnOptions=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
+                clickOnOptions.click();
+                WebElement submitMissingTime = wd.findElements(By.className("android.widget.TextView")).get(1);
+                submitMissingTime.click();
+                WebElement submitPartOfWeek = wd.findElement(By.name("Submit part of week"));
+                submitPartOfWeek.click();
+                WebElement reportInclusive = wd.findElement(By.className("android.widget.ImageView"));
+                reportInclusive.click();
+                WebElement selectDay = wd.findElement(By.className("android.widget.CheckedTextView"));
+                selectDay.click();
+                WebElement submit = wd.findElement(By.className("android.widget.Button"));
+                submit.click();
+                Thread.sleep(3000);
+                if (submit.isDisplayed())
+                {
+                    WebElement cancel=wd.findElements(By.className("android.widget.Button")).get(1);
+                    cancel.click();
+                }
+                Reporter.log("Missing Time Tested Successfully",true);
+                Thread.sleep(3000);
+            } catch (Exception e) {
+                System.out.println(e);
+                Failure("Unsuccessful test of missing time report");
+            }
         }
 
-//        public void Settings()
-//        {
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[4]/android.widget.Button[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.LinearLayout[7]/android.widget.TextView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.LinearLayout[9]/android.widget.TextView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.CheckBox[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[3]/android.widget.CheckBox[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[4]/android.widget.CheckBox[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[5]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.CheckedTextView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[3]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.RelativeLayout[1]/android.widget.RadioButton[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[4]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.RelativeLayout[1]/android.widget.RadioButton[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[5]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.RelativeLayout[1]/android.widget.RadioButton[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[4]/android.widget.ImageView[1]")).click();
-//            wd.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[2]/android.widget.Button[1]")).click();
-//
-//        }
-
-
+        public void Settings()
+        {
+            try {
+                Reporter.log("App Settings", true);
+                WebElement clickOnOptions=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
+                clickOnOptions.click();
+                WebElement settings = wd.findElements(By.className("android.widget.TextView")).get(4);
+                settings.click();
+                WebElement privateComment=wd.findElements(By.className("android.widget.CheckBox")).get(1);
+                privateComment.click();
+                WebElement adjustedHours=wd.findElements(By.className("android.widget.CheckBox")).get(2);
+                adjustedHours.click();
+                WebElement priceDeviation=wd.findElements(By.className("android.widget.CheckBox")).get(3);
+                priceDeviation.click();
+                WebElement viewPhoneCalendar=wd.findElement(By.xpath("//android.widget.RelativeLayout[5]/android.widget.ImageView[1]"));
+                viewPhoneCalendar.click();
+                WebElement calendars=wd.findElements(By.className("android.widget.CheckedTextView")).get(0);
+                calendars.click();
+                wd.navigate().back();
+                WebElement searchCalendarEvents=wd.findElement(By.xpath("//android.widget.RelativeLayout[6]/android.widget.ImageView[1]"));
+                searchCalendarEvents.click();
+                WebElement title=wd.findElements(By.className("android.widget.RadioButton")).get(0);
+                title.click();
+                TouchActions action=new TouchActions(wd);
+                action.scroll(0,100);
+                action.build();
+                action.perform();
+                WebElement numericRepresentation=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
+                numericRepresentation.click();
+                WebElement yes=wd.findElements(By.className("android.widget.RadioButton")).get(0);
+                yes.click();
+                WebElement timeReportRepresentation=wd.findElement(By.xpath("//android.widget.RelativeLayout[2]/android.widget.ImageView[1]"));
+                timeReportRepresentation.click();
+                WebElement row1Customer=wd.findElements(By.className("android.widget.ImageView")).get(0);
+                row1Customer.click();
+                WebElement customer=wd.findElements(By.className("android.widget.RadioButton")).get(0);
+                customer.click();
+                wd.navigate().back();
+                WebElement missingTimeRepresetation=wd.findElement(By.xpath("//android.widget.RelativeLayout[3]/android.widget.ImageView[1]"));
+                missingTimeRepresetation.click();
+                WebElement viewSomeMonthsBack=wd.findElements(By.className("android.widget.RadioButton")).get(0);
+                viewSomeMonthsBack.click();
+                WebElement noticeToProjectManager=wd.findElement(By.xpath("//android.widget.RelativeLayout[4]/android.widget.ImageView[1]"));
+                noticeToProjectManager.click();
+                WebElement saveAndExit=wd.findElement(By.name("Save and Exit"));
+                saveAndExit.click();
+                wd.navigate().back();
+                Reporter.log("Settings done Successfully", true);
+            } catch (Exception e) {
+                System.out.println(e);
+                Failure("Unsuccessful test of app settings");
+            }
+        }
 
 		public void Logout()
 		{
-			//Click on month view
-			WebElement clickOnMonthView=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.TabWidget[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
-            clickOnMonthView.click();
-			WebElement clickOnMenuBar=wd.findElements(By.className("android.widget.ImageView")).get(0);
-            clickOnMenuBar.click();
-			//Click on logout button
-			WebElement clickOnLogoutButton = wd.findElements(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[2]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ListView[1]/android.widget.RelativeLayout[6]/android.widget.TextView[1]")).get(0);
-			clickOnLogoutButton.click();
-            AcceptAlert();
+            try {
+                Reporter.log("Logout", true);
+                //Click on month view
+                WebElement clickOnMenuBar = wd.findElements(By.className("android.widget.ImageView")).get(0);
+                clickOnMenuBar.click();
+                //Click on logout button
+                WebElement clickOnLogoutButton = wd.findElements(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[2]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ListView[1]/android.widget.RelativeLayout[6]/android.widget.TextView[1]")).get(0);
+                clickOnLogoutButton.click();
+                AcceptAlert();
+                Reporter.log("Logout Successful",true);
+            } catch(Exception e) {
+                System.out.println(e);
+                Failure("Unsuccessful logout");
+            }
 		}
 
         public void AcceptAlert()
@@ -312,4 +367,4 @@ public class AndroidDeviceTest {
         {
             Reporter.log(failureMsg, true);
         }
-} 
+}
