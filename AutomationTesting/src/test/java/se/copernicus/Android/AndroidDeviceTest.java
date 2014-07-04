@@ -385,11 +385,11 @@ public class AndroidDeviceTest {
                 WebElement contactEmployees = wd.findElement(By.name("Contact Employees"));
                 contactEmployees.click();
                 Thread.sleep(3000);
-                WebElement clickOnEmployeeName=wd.findElement(By.name("Gunnar Sjöberg"));
-                clickOnEmployeeName.click();
-                WebElement saveToContact=wd.findElement(By.name("Save to Contact"));
-                saveToContact.click();
-                Thread.sleep(3000);
+//                WebElement clickOnEmployeeName=wd.findElement(By.name("Gunnar Sjöberg"));
+//                clickOnEmployeeName.click();
+//                WebElement saveToContact=wd.findElement(By.name("Save to Contact"));
+//                saveToContact.click();
+//                Thread.sleep(3000);
                 WebElement departmentsTab=wd.findElement(By.name("Departments"));
                 departmentsTab.click();
                 Thread.sleep(3000);
