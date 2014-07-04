@@ -74,7 +74,6 @@ public class AndroidDeviceTest {
        	public void RequiredFieldValidation()
 		{
             try {
-                Reporter.log("Require Field Validation", true);
                 ImplicitWait(wd, 3, TimeUnit.MINUTES);
                 WebElement clickUserName = wd.findElement(By.className("android.widget.ImageView"));
                 clickUserName.click();
@@ -95,7 +94,6 @@ public class AndroidDeviceTest {
 		public void VerifyIncorrectData()
 		{
             try {
-                Reporter.log("Verification of Incorrect Data", true);
                 WebElement incorrectCompanyId = wd.findElements(By.className("android.widget.EditText")).get(1);
                 incorrectCompanyId.sendKeys("123");
                 WebElement address = wd.findElements(By.className("android.widget.EditText")).get(2);
@@ -120,7 +118,6 @@ public class AndroidDeviceTest {
 		public void EditUserDetailsAndLogin()
 		{
             try {
-                Reporter.log("Edit User Details and Login", true);
                 //Code to change user detail and verify warning message
                 ImplicitWait(wd, 3, TimeUnit.MINUTES);
                 WebElement clickUserName=wd.findElement(By.className("android.widget.ImageView"));
@@ -149,7 +146,6 @@ public class AndroidDeviceTest {
 		public void AddTimeReport()
 		{
             try {
-                Reporter.log("Add Time Report", true);
                 //click on "+" symbol to add time report
                 WebElement addTimeReport=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.ImageView[1]"));
                 ExplicitWait(wd, 240, addTimeReport);
@@ -194,7 +190,6 @@ public class AndroidDeviceTest {
 		public void EditTimeReport()
 		{
             try {
-                Reporter.log("Edit Time Report", true);
                 //Click on Day tab
                 WebElement dayTab=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TabHost[1]/android.widget.LinearLayout[1]/android.widget.TabWidget[1]/android.widget.RelativeLayout[3]/android.widget.TextView[1]"));
                 dayTab.click();
@@ -237,7 +232,6 @@ public class AndroidDeviceTest {
         public void MissingTime()
         {
             try {
-                Reporter.log("Missing Time", true);
                 WebElement clickOnMenuBar = wd.findElements(By.className("android.widget.ImageView")).get(0);
                 clickOnMenuBar.click();
                 WebElement missingHours=wd.findElement(By.name("Missing Time"));
@@ -273,7 +267,6 @@ public class AndroidDeviceTest {
         public void Settings()
         {
             try {
-                Reporter.log("App Settings", true);
                 WebElement clickOnOptions=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
                 clickOnOptions.click();
                 WebElement settings = wd.findElement(By.name("Settings"));
@@ -327,7 +320,6 @@ public class AndroidDeviceTest {
         public void CalendarEvent()
         {
             try {
-                Reporter.log("Adding Time Report for Calendar Event", true);
                 WebElement enableCalendarEvent=wd.findElement(By.className("android.widget.ToggleButton"));
                 enableCalendarEvent.click();
                 WebElement DayTab=wd.findElement(By.name("Day"));
@@ -379,7 +371,6 @@ public class AndroidDeviceTest {
         public void ContactEmployees()
         {
             try {
-                Reporter.log("Contact Employee", true);
                 WebElement clickOnMenuBar = wd.findElements(By.className("android.widget.ImageView")).get(0);
                 clickOnMenuBar.click();
                 WebElement contactEmployees = wd.findElement(By.name("Contact Employees"));
@@ -403,7 +394,6 @@ public class AndroidDeviceTest {
         public void Logout()
         {
             try {
-                Reporter.log("Logout", true);
                 //Click on month view
                 WebElement clickOnMenuBar = wd.findElements(By.className("android.widget.ImageView")).get(0);
                 clickOnMenuBar.click();
