@@ -59,7 +59,7 @@ public class AndroidDeviceTest {
             Settings();
 
             //Add Time Report for event
-            CalendarEvent();
+           // CalendarEvent();
 
             //Save Employee Contact Information
             ContactEmployees();
@@ -137,7 +137,8 @@ public class AndroidDeviceTest {
                 WebElement password=wd.findElement(By.className("android.widget.EditText"));
                 password.sendKeys("password");
                 ClickOk(wd);
-                Save();
+                WebElement login = wd.findElement(By.className("android.widget.Button"));
+                login.click();
                 Reporter.log("Edit User Details and Login Successful", true);
             } catch (Exception e) {
                 System.out.println(e);
@@ -180,8 +181,7 @@ public class AndroidDeviceTest {
                 adjustHours.get(2).click();
                 adjustHours.get(4).click();
                 ClickOk(wd);
-                WebElement save = wd.findElement(By.className("android.widget.Button"));
-                save.click();
+                Save();
                 WebElement clickOnCustomerName=wd.findElement(By.name("1090/"));
                 clickOnCustomerName.isDisplayed();
                 Reporter.log("Time Report Added Successfully", true);
@@ -333,7 +333,6 @@ public class AndroidDeviceTest {
                 WebElement DayTab=wd.findElement(By.name("Day"));
                 DayTab.click();
                 WebElement clickOnOptions=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
-                GoBack(wd);
                 ExplicitWait(wd, 240, clickOnOptions);
                 WebElement today = wd.findElement(By.name("Today"));
                 today.click();
@@ -432,7 +431,7 @@ public class AndroidDeviceTest {
 
         public void Save()
         {
-            WebElement saveButton = wd.findElement(By.className("android.widget.Button"));
+            WebElement saveButton = wd.findElement(By.name("Save"));
             saveButton.click();
         }
 
@@ -457,6 +456,5 @@ public class AndroidDeviceTest {
         {
             WebElement clickOk = wd.findElements(By.className("android.widget.Button")).get(0);
             ExplicitWait(wd, 240, clickOk);
-            clickOk.click();
         }
 }
