@@ -68,11 +68,11 @@ public class IOSDeviceTest
             //Test case to Edit time report
             EditTimeReport();
 
-//            //Test case to Delete time report
-//            DeleteTimeReport();
-//
-//            //Test case to add event time report
-//            AddEventTimeReport();
+            //Test case to Delete time report
+            DeleteTimeReport();
+
+            //Test case to add event time report
+            AddEventTimeReport();
 //
 //            //Test case to check missing hours and submit
 //            ValidateMissingHoursAndSubmit();
@@ -80,8 +80,8 @@ public class IOSDeviceTest
 //            //Test case to check contact staff details
 //            ValidateContactStaff();
 //
-//            //Test case to Logout time report
-//            Logout();
+            //Test case to Logout time report
+            Logout();
         }
 
 	/*
@@ -192,11 +192,8 @@ public class IOSDeviceTest
                 clickLogin.click();
                 Thread.sleep(3000);
                 //Alert pop up for wrong password
-
-                if (ExpectedConditions.alertIsPresent() != null) {
-                    AcceptAlert(wd);
-                }
-
+                WebElement clickOK=wd.findElement(By.name("OK"));
+                ExplicitlyWait(wd,clickOK);
                 Reporter.log("Invalid Password tested Successfully",true);
             } catch (Exception e) {
                 FailureMessage();
@@ -230,7 +227,7 @@ public class IOSDeviceTest
                 custProjActivityLink.get(0).click();
                 wd.findElement(By.name("Search")).click();
                 WebElement searchBar = wd.findElement(By.className("UIASearchBar"));
-                searchBar.sendKeys("man2176/");
+                searchBar.sendKeys("man2176");
                 WebElement keyboardSearchButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAKeyboard[1]/UIAButton[4]"));
                 keyboardSearchButton.click();
                 wd.findElement(By.name("Clear text")).click();
@@ -340,8 +337,10 @@ public class IOSDeviceTest
                 editMinutes.sendKeys("7");
                 WebElement editSeconds = wd.findElement(By.name("50. 3 of 4"));
                 editSeconds.sendKeys("75");
-                NavigationDoneButton(wd);
-                WebElement saveEditedTimeReport = wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[3]"));
+                WebElement clickOnDone=wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]"));
+                clickOnDone.click();
+                Thread.sleep(3000);
+                WebElement saveEditedTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
                 saveEditedTimeReport.click();
 
                 Reporter.log("Time Report Edited Successfully",true);
@@ -350,53 +349,60 @@ public class IOSDeviceTest
             }
         }
 
-//        public void DeleteTimeReport() {
-//            try {
-//                //Depends on Add and Edit time report
-//                wd.findElement(By.name("man2176/, 1090/, 7,75")).click();
-//                //click on "Delete time report row" button
-//                wd.findElement(By.name("Contact project manager")).click();
-//                wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[3]/UIAActionSheet[1]/UIAButton[2]")).click();
-//                wd.findElement(By.name("Delete time report row")).click();
-//                AcceptAlert(wd);
-//
-//                Reporter.log("Time Report Deleted Successfully",true);
-//            } catch (Exception e) {
-//                FailureMessage();
-//            }
-//        }
-//
-//        public void AddEventTimeReport() {
-//            try {
-//                ImplicitlyWait(wd);
-//                WebElement clickonCalendar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAToolbar[1]/UIAButton[2]"));
-//                clickonCalendar.click();
-//                wd.findElement(By.name("OK")).click();
-//                wd.findElement(By.name("Show all calendars")).click();
-//                wd.findElement(By.name("Done")).click();
-//                wd.findElement(By.name("New event, bang, 1,00")).click();
-//                WebElement selectCustomer = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-//                selectCustomer.click();
-//                WebElement selectTask = wd.findElement(By.name("Task"));
-//                selectTask.click();
-//                WebElement taskName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-//                taskName.click();
-//                WebElement selectTimeType = wd.findElement(By.name("Timetype"));
-//                selectTimeType.click();
-//                WebElement timeTypeName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
-//                timeTypeName.click();
-//                NavigationDoneButton(wd);
-//                wd.findElement(By.name("man2176/, 1090/, 1,00")).click();
-//                wd.findElement(By.name("Delete time report row")).click();
-//                wd.findElement(By.name("OK")).click();
-//                Thread.sleep(3000);
-//
-//                Reporter.log("Event Time Report Added Successfully",true);
-//            } catch (Exception e) {
-//                FailureMessage();
-//            }
-//        }
-//
+        public void DeleteTimeReport() {
+            try {
+                //Depends on Add and Edit time report
+                WebElement clickOnTimeReport=wd.findElement(By.name("man2176/, 1090/, 7,75"));
+                clickOnTimeReport.click();
+                //click on "Delete time report row" button
+                WebElement contactProjManager=wd.findElement(By.name("Contact project manager"));
+                contactProjManager.click();
+                WebElement clickOnCancel=wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[3]/UIAActionSheet[1]/UIAButton[2]"));
+                clickOnCancel.click();
+                WebElement deleteTimeReport=wd.findElement(By.name("Delete time report row"));
+                deleteTimeReport.click();
+                AcceptAlert(wd);
+
+                Reporter.log("Time Report Deleted Successfully",true);
+            } catch (Exception e) {
+                FailureMessage();
+            }
+        }
+
+        public void AddEventTimeReport() {
+            try {
+                ImplicitlyWait(wd);
+                WebElement clickonCalendar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAToolbar[1]/UIAButton[2]"));
+                clickonCalendar.click();
+                wd.findElement(By.name("Show all calendars")).click();
+                wd.findElement(By.name("Done")).click();
+                WebElement eventClick=wd.findElement(By.name("New event, Bang, 1,00"));
+                eventClick.click();
+                WebElement customerName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+                ExplicitlyWait(wd, customerName);
+                //select task
+                WebElement task = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
+                task.click();
+                WebElement taskName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+                taskName.click();
+                //select time type
+                WebElement timeType = wd.findElement(By.xpath("//UIATableCell[3]/UIAStaticText[1]"));
+                timeType.click();
+                WebElement timeTypeName = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
+                timeTypeName.click();
+                NavigationDoneButton(wd);
+                WebElement clickOnEventTimeReport=wd.findElement(By.name("man2176/, 1090/, 1,00"));
+                clickOnEventTimeReport.click();
+                wd.findElement(By.name("Delete time report row")).click();
+                wd.findElement(By.name("OK")).click();
+                Thread.sleep(3000);
+
+                Reporter.log("Event Time Report Added Successfully",true);
+            } catch (Exception e) {
+                FailureMessage();
+            }
+        }
+
 //        public void ValidateMissingHoursAndSubmit() {
 //            try {
 //                ImplicitlyWait(wd);
@@ -453,19 +459,19 @@ public class IOSDeviceTest
 //            }
 //        }
 //
-//        public void Logout() {
-//            try {
-//                //Click on the bar button to select logout link
-//                WebElement selectMenuBar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-//                selectMenuBar.click();
-//                wd.findElement(By.name("Logout")).click();
-//                AcceptAlert(wd);
-//
-//                Reporter.log("Logout tested Successfully",true);
-//            } catch (Exception e) {
-//                FailureMessage();
-//            }
-//        }
+        public void Logout() {
+            try {
+                //Click on the bar button to select logout link
+                WebElement selectMenuBar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
+                selectMenuBar.click();
+                wd.findElement(By.name("Logout")).click();
+                AcceptAlert(wd);
+
+                Reporter.log("Logout tested Successfully",true);
+            } catch (Exception e) {
+                FailureMessage();
+            }
+        }
 
         public void AddUserDetails(String name, String companyName, String address)
         {
