@@ -402,11 +402,12 @@ public class IOSDeviceTest
                 timeTypeName.click();
                 WebElement navigationDoneButton = wd.findElement(By.name("Done"));
                 navigationDoneButton.click();
+                Thread.sleep(3000);
                 WebElement clickOnEventTimeReport=wd.findElement(By.name("man2176/, 1090/, 1,00"));
                 clickOnEventTimeReport.click();
                 WebElement deleteEventTimeReport=wd.findElement(By.name("Delete time report row"));
                 deleteEventTimeReport.click();
-                ImplicitlyWait(wd);
+                Thread.sleep(3000);
                 wd.findElement(By.name("OK")).click();
 
                 Reporter.log("Event Time Report Added Successfully",true);
