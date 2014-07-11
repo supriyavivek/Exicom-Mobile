@@ -1,7 +1,6 @@
 package se.copernicus.IOS;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,9 +10,12 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 public class IOSDeviceTest
 {
@@ -27,11 +29,13 @@ public class IOSDeviceTest
         @BeforeMethod
         public void setUp() {
             try {
+                File appDir=new File("/Users/indpro/appium");
+                File app=new File(appDir, "cTimeSheetDevice.app");
                 DesiredCapabilities capabilities = new DesiredCapabilities();
-                capabilities.setCapability(CapabilityType.VERSION, "7.1");
-                capabilities.setCapability(CapabilityType.PLATFORM, "iOS");
-                capabilities.setCapability("app", "./cTimeSheetDevice.app");
-                capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
+                capabilities.setCapability("platformName", "ios");
+                capabilities.setCapability("deviceName", "iPhone");
+                capabilities.setCapability("app", app.getAbsolutePath());
+                capabilities.setCapability("udid", "cd5000ab8a58c931a9f24d5e1f9ad41a8f25ca7b");
                 wd = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 ImplicitlyWait(wd);
 
