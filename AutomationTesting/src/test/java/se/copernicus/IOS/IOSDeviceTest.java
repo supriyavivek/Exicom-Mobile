@@ -35,7 +35,7 @@ public class IOSDeviceTest
                 capabilities.setCapability("platformName", "ios");
                 capabilities.setCapability("deviceName", "iPhone");
                 capabilities.setCapability("app", app.getAbsolutePath());
-                capabilities.setCapability("udid", "bf976a2547d8ceea7cf57263b401328f70b36603");
+                capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
                 wd = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 ImplicitlyWait(wd);
 
