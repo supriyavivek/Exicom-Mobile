@@ -33,7 +33,7 @@ public class AndroidDeviceTest {
 			//wd.quit();
 		}
 		
-		//@Test
+		@Test
 		public void AutomationTestScripts() throws Exception {
 
 			//Require Field Validation method

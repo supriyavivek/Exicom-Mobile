@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedCondition"/>
 <fullyQualifiedTypeName name="io.selendroid.SelendroidDriver"/>
 <fullyQualifiedTypeName name="io.selendroid.SelendroidKeys"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.internal.seleniumemulation.KeyEvent"/>
@@ -58,6 +57,7 @@
 <fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
 <fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.OutputType"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.remote.CapabilityType"/>
 </qualifiedTypeNameHistroy>
