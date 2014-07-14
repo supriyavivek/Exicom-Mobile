@@ -55,7 +55,7 @@ public class IOSSimulatorTest
 		wd.quit();
 	}
 
-	@Test
+	//@Test
 	public void AutomationTestScripts() {
 		//Test case to login
 		LoginFieldsValidation();
