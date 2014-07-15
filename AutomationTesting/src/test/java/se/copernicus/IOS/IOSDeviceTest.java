@@ -52,41 +52,7 @@ public class IOSDeviceTest
            // wd.quit();
         }
 
-        @Test
-        public void AutomationTestScripts() {
-            //Test case to login
-            LoginFieldsValidation();
-            InvalidLogin();
-            DeleteUser();
-            InvalidPassword();
-            Login();
-
-            //Test case to test search functionality
-            SearchCompany();
-
-            //Test case to Add time report
-            AddTimeReport();
-
-            //Test case to Edit time report
-            EditTimeReport();
-
-            //Test case to Delete time report
-            DeleteTimeReport();
-
-            //Test case to add event time report
-            AddEventTimeReport();
-
-            //Test case to check missing hours and submit
-            ValidateMissingHoursAndSubmit();
-
-            //Test case to check contact staff details
-            ValidateContactStaff();
-
-            //Test case to Logout time report
-            Logout();
-        }
-
-	/*
+    /*
 	Precondition for test2
 	1) Goto settings by pressing "windows+shift+h" and clicking on settings app
 	2) Find cTimeSheet and click on it.
@@ -113,7 +79,7 @@ public class IOSDeviceTest
 	Logout();
 	}
 	*/
-
+        @Test
         public void LoginFieldsValidation() {
             try {
                 List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
@@ -133,6 +99,7 @@ public class IOSDeviceTest
 
         }
 
+        @Test (dependsOnMethods= {"LoginFieldsValidation"})
         public void InvalidLogin() {
             try {
                 //Script followed by LoginFieldsValidation() method
@@ -153,6 +120,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"InvalidLogin"})
         public void DeleteUser() {
             try {
                 //Script followed by LoginFieldsValidation() method
@@ -183,6 +151,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"DeleteUser"})
         public void InvalidPassword() {
             try {
                 //Script followed by LoginFieldsValidation() method
@@ -202,6 +171,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"InvalidPassword"})
         public void Login() {
             try {
                 ImplicitlyWait(wd);
@@ -221,6 +191,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"Login"})
         public void SearchCompany() {
             try {
                 //Prerequisite login script should be executed
@@ -269,6 +240,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"SearchCompany"})
         public void AddTimeReport() {
             try {
                 //Prerequisite login script should be executed
@@ -331,8 +303,9 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"AddTimeReport"})
         public void EditTimeReport() {
-            try {
+             try {
                 //Script followed by AddTimeReport
                 ImplicitlyWait(wd);
                 WebElement clickonTimeReport = wd.findElement(By.name("man2176/, 1090/, 4,50"));
@@ -363,6 +336,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"EditTimeReport"})
         public void DeleteTimeReport() {
             try {
                 //Depends on Add and Edit time report
@@ -383,6 +357,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"DeleteTimeReport"})
         public void AddEventTimeReport() {
             try {
                 ImplicitlyWait(wd);
@@ -420,6 +395,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"AddEventTimeReport"})
         public void ValidateMissingHoursAndSubmit() {
             try {
                 ImplicitlyWait(wd);
@@ -449,6 +425,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"ValidateMissingHoursAndSubmit"})
         public void ValidateContactStaff() {
             try {
                 ImplicitlyWait(wd);
@@ -476,6 +453,7 @@ public class IOSDeviceTest
             }
         }
 
+        @Test (dependsOnMethods= {"ValidateContactStaff"})
         public void Logout() {
             try {
                 //Click on the bar button to select logout link
