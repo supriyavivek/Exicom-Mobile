@@ -28,6 +28,7 @@ public class IOSDeviceTest {
     @BeforeMethod
     public void setUp() {
         try {
+            Reporter.log("App launched", true);
             File appDir = new File("/Users/indpro/appium");
             File app = new File(appDir, "cTimeSheetDevice.app");
             DesiredCapabilities capabilities = new DesiredCapabilities();
