@@ -30,7 +30,10 @@ public class IOSDeviceTest {
         try {
             Reporter.log("App launched", true);
 //            File appDir = new File("/Users/Shared/Jenkins");
-            File appDir = new File(System.getProperty("user.dir"+"/src/test/resources"));
+            String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
+            System.out.println(appdirectory);
+            File appDir = new File(appdirectory);
+
             File app = new File(appDir, "cTimeSheetDevice.app");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "ios");
