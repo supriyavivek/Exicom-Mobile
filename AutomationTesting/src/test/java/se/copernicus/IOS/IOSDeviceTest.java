@@ -29,7 +29,8 @@ public class IOSDeviceTest {
     public void setUp() {
         try {
             Reporter.log("App launched", true);
-            File appDir = new File("/Users/indpro/appium");
+//            File appDir = new File("/Users/Shared/Jenkins");
+            File appDir = new File(System.getProperty("user.dir"+"/src/test/resources"));
             File app = new File(appDir, "cTimeSheetDevice.app");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "ios");
