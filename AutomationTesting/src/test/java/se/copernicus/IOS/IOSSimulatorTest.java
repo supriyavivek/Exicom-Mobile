@@ -6,7 +6,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,6 +39,7 @@ public class IOSSimulatorTest
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "ios");
             capabilities.setCapability("deviceName", "iPhone");
+            capabilities.setCapability("app", app.getAbsolutePath());
            	wd= new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
 			
@@ -619,18 +619,10 @@ public class IOSSimulatorTest
     public void FailureMessage()
     {
         System.out.println("Failure");
-        getScreenShot(wd, "/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/target");
         //Following the steps if a method fails
         WebElement selectMenuOption=wd.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
         selectMenuOption.click();
         wd.findElement(By.xpath("Time report")).click();
-    }
-
-    public void getScreenShot(WebDriver wd, String imgPath)
-    {
-        EventFiringWebDriver efDriver=new EventFiringWebDriver(wd);
-        File srcFile=efDriver.getScreenshotAs(OutputType.FILE);
-        File destFile=new File(imgPath);
     }
 
     public void KeyboardDoneButton(WebDriver wd)
