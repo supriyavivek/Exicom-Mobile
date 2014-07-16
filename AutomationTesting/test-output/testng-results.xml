@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="14" passed="14">
+  <reporter-output>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+    <line>
+      <![CDATA[Test Case Failed]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="175" started-at="2014-07-16T10:41:53Z" finished-at="2014-07-16T10:41:53Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="175" started-at="2014-07-16T10:41:53Z" finished-at="2014-07-16T10:41:53Z">
+      <class name="se.copernicus.IOS.IOSSimulatorTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="6" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="AutomationTestScripts()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="AutomationTestScripts" duration-ms="11" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AutomationTestScripts -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="LoginFieldsValidation()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="LoginFieldsValidation" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- LoginFieldsValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="InvalidLogin()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="InvalidLogin" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.LoginFieldsValidation" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- InvalidLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="DeleteUser()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="DeleteUser" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.InvalidLogin" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- DeleteUser -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="InvalidPassword()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="InvalidPassword" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.DeleteUser" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- InvalidPassword -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="Login()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="Login" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.InvalidPassword" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="3" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="SearchCompany()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="SearchCompany" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.Login" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SearchCompany -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="AddTimeReport()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="AddTimeReport" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.SearchCompany" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddTimeReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="EditTimeReport()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="EditTimeReport" duration-ms="2" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.AddTimeReport" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- EditTimeReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="DeleteTimeReport()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="DeleteTimeReport" duration-ms="2" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.EditTimeReport" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- DeleteTimeReport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="AddEventTimeReport()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="AddEventTimeReport" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.DeleteTimeReport" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddEventTimeReport -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="ValidateMissingHoursAndSubmit()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="ValidateMissingHoursAndSubmit" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.AddEventTimeReport" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ValidateMissingHoursAndSubmit -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ValidateContactStaff()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="ValidateContactStaff" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.ValidateMissingHoursAndSubmit" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ValidateContactStaff -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="setUp" is-config="true" duration-ms="1" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Logout()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="Logout" duration-ms="1" started-at="2014-07-16T16:11:53Z" depends-on-methods="se.copernicus.IOS.IOSSimulatorTest.ValidateContactStaff" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Case Failed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Logout -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:se.copernicus.IOS.IOSSimulatorTest@1c5d9084]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-07-16T16:11:53Z" finished-at="2014-07-16T16:11:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- se.copernicus.IOS.IOSSimulatorTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
