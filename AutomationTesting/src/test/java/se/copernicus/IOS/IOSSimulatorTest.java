@@ -52,7 +52,7 @@ public class IOSSimulatorTest
 	@AfterMethod
 	public void tearDown() 
 	{	
-		wd.quit();
+//		wd.quit();
 	}
 
 	@Test
