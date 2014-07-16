@@ -55,7 +55,7 @@ public class IOSSimulatorTest
 		wd.quit();
 	}
 
-	//@Test
+	@Test
 	public void AutomationTestScripts() {
 		//Test case to login
 		LoginFieldsValidation();
@@ -116,7 +116,7 @@ public class IOSSimulatorTest
 	Logout();
 	}
 	*/
-
+    @Test
     public void LoginFieldsValidation()
 	{
 		try {
@@ -136,7 +136,8 @@ public class IOSSimulatorTest
 		}
 			
 	}
-	
+
+    @Test (dependsOnMethods = {"LoginFieldsValidation"})
 	public void InvalidLogin()
 	{
 		try {
@@ -157,7 +158,8 @@ public class IOSSimulatorTest
             FailureMessage();
 		}
 	}
-	
+
+    @Test (dependsOnMethods = {"InvalidLogin"})
 	public void DeleteUser()
 	{
 		try {
@@ -188,7 +190,8 @@ public class IOSSimulatorTest
             FailureMessage();
 		}
 	}
-		
+
+    @Test (dependsOnMethods = {"DeleteUser"})
 	public void InvalidPassword()
 	{
 		try {
@@ -209,7 +212,8 @@ public class IOSSimulatorTest
             FailureMessage();
 		}
 	}
-	
+
+    @Test (dependsOnMethods = {"InvalidPassword"})
 	public void Login()
 	{
 		try {
@@ -227,7 +231,8 @@ public class IOSSimulatorTest
             FailureMessage();
 		}
 	}
-	
+
+    @Test (dependsOnMethods = {"Login"})
 	public void SearchCompany()
 	{
 		try {
@@ -268,6 +273,7 @@ public class IOSSimulatorTest
         }
 	}
 
+    @Test (dependsOnMethods = {"SearchCompany"})
 	public void AddTimeReport()
 	{
 		try {
@@ -330,6 +336,7 @@ public class IOSSimulatorTest
         }
 	}
 
+    @Test (dependsOnMethods = {"AddTimeReport"})
 	public void EditTimeReport()
 	{
 		try {
@@ -360,6 +367,7 @@ public class IOSSimulatorTest
         }
 	}
 
+    @Test (dependsOnMethods = {"EditTimeReport"})
 	public void DeleteTimeReport()
 	{
 		try {
@@ -377,6 +385,7 @@ public class IOSSimulatorTest
         }
 	}
 
+    @Test (dependsOnMethods = {"DeleteTimeReport"})
 	public void AddEventTimeReport()
 	{
 		try {
@@ -524,6 +533,8 @@ public class IOSSimulatorTest
 		}
 	}
 	*/
+
+    @Test (dependsOnMethods = {"AddEventTimeReport"})
 	public void ValidateMissingHoursAndSubmit()
 	{
 		try {
@@ -554,7 +565,8 @@ public class IOSSimulatorTest
 
 		}
 	}
-	
+
+    @Test (dependsOnMethods = {"ValidateMissingHoursAndSubmit"})
 	public void ValidateContactStaff()
 	{
 		try {
@@ -582,7 +594,8 @@ public class IOSSimulatorTest
             FailureMessage();
         }
 	}
-	
+
+    @Test (dependsOnMethods = {"ValidateContactStaff"})
 	public void Logout()
 	{
 		try {
@@ -616,11 +629,7 @@ public class IOSSimulatorTest
 
     public void FailureMessage()
     {
-        System.out.println("Failure");
-        //Following the steps if a method fails
-        WebElement selectMenuOption=wd.findElement(By.xpath("//UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
-        selectMenuOption.click();
-        wd.findElement(By.xpath("Time report")).click();
+        Reporter.log("Test Case Failed");
     }
 
     public void KeyboardDoneButton(WebDriver wd)
