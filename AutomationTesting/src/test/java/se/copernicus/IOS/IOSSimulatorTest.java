@@ -34,12 +34,14 @@ public class IOSSimulatorTest
 	public void setUp() 
 	{
 	try {
-		    DesiredCapabilities capabilities = new DesiredCapabilities();
-			capabilities.setCapability(CapabilityType.VERSION, "7.1");
-			capabilities.setCapability(CapabilityType.PLATFORM, "iOS");
-			capabilities.setCapability("app", "./cTimeSheetSimulator.app");
-			wd= new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
             ImplicitlyWait(wd);
+            File appDir=new File("/Users/indpro/appium");
+            File app=new File(appDir, "cTimeSheetSimulator.app");
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("platformName", "ios");
+            capabilities.setCapability("deviceName", "iPhone");
+           	wd= new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+
 			
 		Reporter.log("App launched",true);
 		Thread.sleep(3000);
