@@ -33,7 +33,7 @@ public class IOSDeviceTest {
             String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
             System.out.println(appdirectory);
             File appDir = new File(appdirectory);
-
+            System.out.println(appDir);
             File app = new File(appDir, "cTimeSheetDevice.app");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "ios");
