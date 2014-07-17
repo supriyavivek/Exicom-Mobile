@@ -42,6 +42,7 @@ public class IOSDeviceTest {
             capabilities.setCapability("app", app.getAbsolutePath());
             System.out.println(app.getAbsolutePath());
             capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
+            Reporter.log("App launched", true);
             wd = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
             ImplicitlyWait(wd);
 
@@ -49,6 +50,7 @@ public class IOSDeviceTest {
             Thread.sleep(3000);
 
         } catch (Exception e) {
+            System.out.println(e);
             FailureMessage();
         }
     }
