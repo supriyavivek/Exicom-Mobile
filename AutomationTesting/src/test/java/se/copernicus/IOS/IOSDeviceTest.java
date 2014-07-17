@@ -37,9 +37,10 @@ public class IOSDeviceTest {
             File app = new File(appDir, "cTimeSheetDevice.app");
             System.out.println(app);
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("platformName", "ios");
-            capabilities.setCapability("deviceName", "iPhone");
+            capabilities.setCapability("platformName", "IOS");
+            capabilities.setCapability("deviceName", "Indpro iPhone 4S");
             capabilities.setCapability("app", app.getAbsolutePath());
+            System.out.println(app.getAbsolutePath());
             capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
             wd = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
             ImplicitlyWait(wd);
