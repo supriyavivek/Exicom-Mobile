@@ -28,21 +28,14 @@ public class IOSDeviceTest {
     @BeforeMethod
     public void setUp() {
         try {
-            Reporter.log("App launched", true);
-//            File appDir = new File("/Users/Shared/Jenkins");
             String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
-            System.out.println(appdirectory);
             File appDir = new File(appdirectory);
-            System.out.println(appDir);
             File app = new File(appDir, "cTimeSheetDevice.app");
-            System.out.println(app);
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "IOS");
             capabilities.setCapability("deviceName", "Indpro iPhone 4S");
             capabilities.setCapability("app", app.getAbsolutePath());
-            System.out.println(app.getAbsolutePath());
             capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
-            Reporter.log("App launched", true);
             wd = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
             ImplicitlyWait(wd);
 
