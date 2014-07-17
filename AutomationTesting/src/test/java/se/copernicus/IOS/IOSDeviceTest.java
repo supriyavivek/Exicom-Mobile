@@ -35,6 +35,7 @@ public class IOSDeviceTest {
             File appDir = new File(appdirectory);
             System.out.println(appDir);
             File app = new File(appDir, "cTimeSheetDevice.app");
+            System.out.println(app);
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "ios");
             capabilities.setCapability("deviceName", "iPhone");
