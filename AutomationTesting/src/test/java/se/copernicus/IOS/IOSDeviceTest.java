@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -25,7 +25,7 @@ public class IOSDeviceTest {
 	1) A Event should be added in current date ["New event", "bang", "1,00"]
 	*/
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp() {
         try {
             String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
