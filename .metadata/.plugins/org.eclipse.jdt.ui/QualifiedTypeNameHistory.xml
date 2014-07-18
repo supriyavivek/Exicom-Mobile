@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="io.selendroid.SelendroidDriver"/>
 <fullyQualifiedTypeName name="io.selendroid.SelendroidKeys"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.internal.seleniumemulation.KeyEvent"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.OutputType"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.remote.CapabilityType"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 </qualifiedTypeNameHistroy>

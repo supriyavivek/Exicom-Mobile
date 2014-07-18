@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="IOS test suite">
-     <test name="ios test">
-       <classes>
-             <class name="se.copernicus.IOS.IOSDeviceTest"/>
-             <class name="se.copernicus.IOS.IOSSimulatorTest"/>
-                     
-    <!--           <exclude name="mslt.verification.BroadcastValidateUtil"></exclude> -->
-       </classes>
-     </test>
-     
-    <!-- <test name="Verify All info in Pelis">-->
-    <!--   <parameter name="tag" value="Pelis"/>-->
-    <!--   <classes>-->
-    <!--         <class name="mslt.verification.Web_TV_Guide_BroadcastInfo"/>-->
-    <!--   </classes>-->
-    <!-- </test>-->
-
+    <test name="ios test">
+        <classes>
+            <class name="se.copernicus.IOS.IOSDeviceTest"/>
+            <class name="se.copernicus.IOS.IOSSimulatorTest"/>
+            <class name="se.copernicus.Android.AndroidDeviceTest"/>          
+        </classes>
+    </test>
 </suite>

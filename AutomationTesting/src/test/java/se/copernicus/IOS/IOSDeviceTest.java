@@ -7,11 +7,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -25,457 +26,386 @@ public class IOSDeviceTest {
 	1) A Event should be added in current date ["New event", "bang", "1,00"]
 	*/
 
-    @BeforeSuite
-    public void setUp() {
-        try {
-            String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
-            File appDir = new File(appdirectory);
-            File app = new File(appDir, "cTimeSheetDevice.app");
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("platformName", "IOS");
-            capabilities.setCapability("deviceName", "Indpro iPhone 4S");
-            capabilities.setCapability("app", app.getAbsolutePath());
-            capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
-            wd = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-            ImplicitlyWait(wd);
+    @BeforeClass
+    public void setUp() throws InterruptedException, MalformedURLException {
+        String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
+        File appDir = new File(appdirectory);
+        File app = new File(appDir, "cTimeSheetDevice.app");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("platformName", "IOS");
+        capabilities.setCapability("deviceName", "iPhone");
+        capabilities.setCapability("app", app.getAbsolutePath());
+        capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
+        wd = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+        ImplicitlyWait(wd);
 
-            Reporter.log("App launched", true);
-            Thread.sleep(3000);
-
-        } catch (Exception e) {
-            System.out.println(e);
-            FailureMessage();
-        }
+        Reporter.log("App launched", true);
+        Thread.sleep(3000);
     }
 
-    @AfterSuite
+    @AfterClass
     public void tearDown() {
         wd.quit();
     }
 
-    /*
-	Precondition for test2
-	1) Goto settings by pressing "windows+shift+h" and clicking on settings app
-	2) Find cTimeSheet and click on it.
-	3) On "Private comment", "Adjusted hours", and "Price deviation".
-	4) Change "Time factor" value to 5 by clicking on it.
-	5) Off "Show number".
-	6) Click on "calendar search" and select Location.
-	@Test
-	public void TestScript2() {
-	//Test case to login and verify fields
-	LoginValidation();
-	Login();
-
-	//Test case to Add time report with cTimeSheet settings
-	AddTimeReportWithSettings();
-
-	//Test case to Edit time report
-	EditTimeReportWithSettings();
-
-	//Test case to Delete time report
-	DeleteTimeReportWithSettings();
-
-	//Test case to Logout time report
-	Logout();
-	}
-	*/
     @Test
-    public void LoginFieldsValidation() {
-        try {
-            List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
-            clickUserLink.get(1).click();
-            Thread.sleep(3000);
-            //Click on Add user link
-            WebElement clickAddUserLink = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            clickAddUserLink.click();
-            AddUserDetails("10", "1000", "192.168.1.109:7070");
-            KeyboardDoneButton(wd);
-            NavigationDoneButton(wd);
+    public void LoginFieldsValidation() throws InterruptedException {
+        List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
+        clickUserLink.get(1).click();
+        Thread.sleep(3000);
+        //Click on Add user link
+        WebElement clickAddUserLink = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        clickAddUserLink.click();
+        AddUserDetails("10", "1000", "192.168.1.109:7070");
+        KeyboardDoneButton(wd);
+        NavigationDoneButton(wd);
 
-            Reporter.log("Login credentials entered successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
-
+        Reporter.log("Login credentials entered successfully", true);
     }
 
     @Test(dependsOnMethods = {"LoginFieldsValidation"})
     public void InvalidLogin() {
-        try {
-            //Script followed by LoginFieldsValidation() method
-            ImplicitlyWait(wd);
-            WebElement clickUserName = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")).get(0);
-            clickUserName.click();
-            //Add duplicate user
-            WebElement clickonAddUser = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
-            clickonAddUser.click();
-            AddUserDetails("10", "1000", "192.168.1.109:7070");
-            KeyboardDoneButton(wd);
-            NavigationDoneButton(wd);
-            AcceptAlert(wd);
+        //Script followed by LoginFieldsValidation() method
+        ImplicitlyWait(wd);
+        WebElement clickUserName = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")).get(0);
+        clickUserName.click();
+        //Add duplicate user
+        WebElement clickonAddUser = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
+        clickonAddUser.click();
+        AddUserDetails("10", "1000", "192.168.1.109:7070");
+        KeyboardDoneButton(wd);
+        NavigationDoneButton(wd);
+        AcceptAlert(wd);
 
-            Reporter.log("Invalid Login tested Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Invalid Login tested Successfully", true);
     }
 
     @Test(dependsOnMethods = {"InvalidLogin"})
-    public void DeleteUser() {
-        try {
-            //Script followed by LoginFieldsValidation() method
-            ImplicitlyWait(wd);
-            List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
-            clickUserLink.get(0).click();
-            Thread.sleep(3000);
-            //Click on Add user link
-            WebElement clickAddUserLink = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
-            clickAddUserLink.click();
-            AddUserDetails("ind14", "1000", "192.168.1.109:8080");
-            KeyboardDoneButton(wd);
-            NavigationDoneButton(wd);
-            WebElement clickUserLinkWithName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            clickUserLinkWithName.click();
-            WebElement ClickSelectedUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAButton[1]"));
-            ClickSelectedUser.click();
-            wd.findElement(By.name("Reset")).click();
-            AcceptAlert(wd);
-            wd.findElement(By.name("Delete user")).click();
-            AcceptAlert(wd);
-            WebElement clickExistingUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            clickExistingUser.click();
+    public void DeleteUser() throws InterruptedException {
+        //Script followed by LoginFieldsValidation() method
+        ImplicitlyWait(wd);
+        List<WebElement> clickUserLink = wd.findElements(By.className("UIAStaticText"));
+        clickUserLink.get(0).click();
+        Thread.sleep(3000);
+        //Click on Add user link
+        WebElement clickAddUserLink = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
+        clickAddUserLink.click();
+        AddUserDetails("ind14", "1000", "192.168.1.109:8080");
+        KeyboardDoneButton(wd);
+        NavigationDoneButton(wd);
+        WebElement clickUserLinkWithName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        clickUserLinkWithName.click();
+        WebElement ClickSelectedUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAButton[1]"));
+        ClickSelectedUser.click();
+        wd.findElement(By.name("Reset")).click();
+        AcceptAlert(wd);
+        wd.findElement(By.name("Delete user")).click();
+        AcceptAlert(wd);
+        WebElement clickExistingUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        clickExistingUser.click();
 
-            Reporter.log("Delete User tested Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Delete User tested Successfully", true);
     }
 
     @Test(dependsOnMethods = {"DeleteUser"})
-    public void InvalidPassword() {
-        try {
-            //Script followed by LoginFieldsValidation() method
-            ImplicitlyWait(wd);
-            WebElement incorrectPassword = wd.findElement(By.className("UIASecureTextField"));
-            incorrectPassword.sendKeys("WrongPassword");
-            KeyboardDoneButton(wd);
-            WebElement clickLogin = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
-            clickLogin.click();
-            Thread.sleep(3000);
-            //Alert pop up for wrong password
-            WebElement clickOK = wd.findElement(By.name("OK"));
-            ExplicitlyWait(wd, clickOK);
-            Reporter.log("Invalid Password tested Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+    public void InvalidPassword() throws InterruptedException {
+        //Script followed by LoginFieldsValidation() method
+        ImplicitlyWait(wd);
+        WebElement incorrectPassword = wd.findElement(By.className("UIASecureTextField"));
+        incorrectPassword.sendKeys("WrongPassword");
+        KeyboardDoneButton(wd);
+        WebElement clickLogin = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
+        clickLogin.click();
+        Thread.sleep(3000);
+        //Alert pop up for wrong password
+        WebElement clickOK = wd.findElement(By.name("OK"));
+        ExplicitlyWait(wd, clickOK);
     }
 
     @Test(dependsOnMethods = {"InvalidPassword"})
-    public void Login() {
-        try {
-            ImplicitlyWait(wd);
-            //Script followed by LoginFieldsValidation() method
-            WebElement password = wd.findElements(By.className("UIASecureTextField")).get(0);
-            password.sendKeys("password");
-            KeyboardDoneButton(wd);
-            //click on login button
-            WebElement loginButton = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
-            Assert.assertTrue(loginButton.isDisplayed(), "Login");
-            loginButton.click();
-            Thread.sleep(3000);
+    public void Login() throws InterruptedException {
+        ImplicitlyWait(wd);
+        //Script followed by LoginFieldsValidation() method
+        WebElement password = wd.findElements(By.className("UIASecureTextField")).get(0);
+        password.sendKeys("password");
+        KeyboardDoneButton(wd);
+        //click on login button
+        WebElement loginButton = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
+        Assert.assertTrue(loginButton.isDisplayed(), "Login");
+        loginButton.click();
+        Thread.sleep(3000);
 
-            Reporter.log("Login successfull", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Login successfull", true);
     }
 
     @Test(dependsOnMethods = {"Login"})
-    public void SearchCompany() {
-        try {
-            //Prerequisite login script should be executed
-            ImplicitlyWait(wd);
-            WebElement clickOnAddTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
-            clickOnAddTimeReport.click();
-            List<WebElement> custProjActivityLink = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            custProjActivityLink.get(0).click();
-            wd.findElement(By.name("Search")).click();
-            Thread.sleep(3000);
-            try {
-                WebElement searchBar = wd.findElement(By.xpath("//UIATableView[1]/UIATableGroup[1]/UIASearchBar[1]"));
-                searchBar.sendKeys("man2176");
-                WebElement keyboardSearchButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAKeyboard[1]/UIAButton[4]"));
-                keyboardSearchButton.click();
-                wd.findElement(By.name("Clear text")).click();
-                //search button on keyboard
-                WebElement searchButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAKeyboard[1]/UIAButton[4]"));
-                searchButton.click();
-                //select the first value and click
-                WebElement selectFirstCustomer = wd.findElement(By.name("10054/"));
-                selectFirstCustomer.click();
-                WebElement navigateBack = wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[1]"));
-                navigateBack.click();
-                //navigating on all tabs
-                wd.findElement(By.name("Customer")).click();
-                Thread.sleep(2000);
-                wd.findElement(By.name("Project")).click();
-                Thread.sleep(2000);
-                wd.findElement(By.name("Activity")).click();
-                wd.findElement(By.name("Customers")).click();
-                wd.findElement(By.name("Cancel")).click();
-                WebElement cancelButton = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
-                cancelButton.click();
-            } catch (Exception e) {
-                System.out.println(e);
-                wd.findElement(By.name("Customers")).click();
-                wd.findElement(By.name("Cancel")).click();
-                WebElement cancelButton = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
-                cancelButton.click();
-            }
+    public void SearchCompany() throws InterruptedException {
+        //Prerequisite login script should be executed
+        ImplicitlyWait(wd);
+        WebElement clickOnAddTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
+        clickOnAddTimeReport.click();
+        List<WebElement> custProjActivityLink = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        custProjActivityLink.get(0).click();
+        wd.findElement(By.name("Search")).click();
+        Thread.sleep(3000);
+        WebElement searchBar = wd.findElement(By.xpath("//UIATableView[1]/UIATableGroup[1]/UIASearchBar[1]"));
+        searchBar.sendKeys("man2176");
+        WebElement keyboardSearchButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAKeyboard[1]/UIAButton[4]"));
+        keyboardSearchButton.click();
+        wd.findElement(By.name("Clear text")).click();
+        //search button on keyboard
+        WebElement searchButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAKeyboard[1]/UIAButton[4]"));
+        searchButton.click();
+        //select the first value and click
+        WebElement selectFirstCustomer = wd.findElement(By.name("10054/"));
+        selectFirstCustomer.click();
+        WebElement navigateBack = wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[1]"));
+        navigateBack.click();
+        //navigating on all tabs
+        wd.findElement(By.name("Customer")).click();
+        Thread.sleep(2000);
+        wd.findElement(By.name("Project")).click();
+        Thread.sleep(2000);
+        wd.findElement(By.name("Activity")).click();
+        wd.findElement(By.name("Customers")).click();
+        wd.findElement(By.name("Cancel")).click();
+        WebElement cancelButton = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
+        cancelButton.click();
 
-            Reporter.log("Search script tested Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Search script tested Successfully", true);
     }
 
     @Test(dependsOnMethods = {"SearchCompany"})
     public void AddTimeReport() {
-        try {
-            //Prerequisite login script should be executed
-            ImplicitlyWait(wd);
-            WebElement clickOnAddTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
-            clickOnAddTimeReport.click();
-            //Select the customer project and activity
-            List<WebElement> custProjActivityLink = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            custProjActivityLink.get(0).click();
-            WebElement customerName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            ExplicitlyWait(wd, customerName);
-            //select task
-            WebElement task = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
-            task.click();
-            WebElement taskName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            taskName.click();
-            //select time type
-            WebElement timeType = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[3]/UIAStaticText[1]"));
-            timeType.click();
-            WebElement timeTypeName = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
-            timeTypeName.click();
-            //click on comment link
-            WebElement commentLink = wd.findElement(By.xpath("//UIATableCell[4]/UIAStaticText[1]"));
-            commentLink.click();
-            WebElement comment = wd.findElements(By.className("UIATextView")).get(0);
-            comment.sendKeys("comment");
-            WebElement doneButton = wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[3]"));
-            doneButton.click();
-            //Add hours and save report
-            WebElement hourButton = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[6]/UIATextField[1]"));
-            hourButton.click();
-            WebElement minutes = wd.findElement(By.name("0. 1 of 25"));
-            minutes.sendKeys("4");
-            WebElement seconds = wd.findElement(By.name("0. 1 of 4"));
-            seconds.sendKeys("50");
-            //click on done buttons
-            WebElement hourDoneButton = wd.findElement(By.xpath("//UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]"));
-            hourDoneButton.click();
-            NavigationDoneButton(wd);
-            //click on week view
-            WebElement weekView = wd.findElement(By.name("Week"));
-            weekView.click();
-            WebElement nextArrow = wd.findElement(By.xpath("//UIAWindow[1]/UIAButton[2]"));
-            nextArrow.click();
-            //click on month view
-            WebElement monthView = wd.findElement(By.name("Month"));
-            monthView.click();
-            wd.findElement(By.name("CalendarHide.png")).click();
-            wd.findElement(By.name("CalendarShow.png")).click();
-            //click on today link
-            WebElement todayLink = wd.findElement(By.xpath("//UIAToolbar[1]/UIAButton[1]"));
-            todayLink.click();
-            //click back to day view
-            WebElement dayView = wd.findElement(By.xpath("//UIASegmentedControl[1]/UIAButton[1]"));
-            dayView.click();
+        //Prerequisite login script should be executed
+        ImplicitlyWait(wd);
+        WebElement clickOnAddTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
+        clickOnAddTimeReport.click();
+        //Select the customer project and activity
+        List<WebElement> custProjActivityLink = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        custProjActivityLink.get(0).click();
+        WebElement customerName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        ExplicitlyWait(wd, customerName);
+        //select task
+        WebElement task = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
+        task.click();
+        WebElement taskName = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        taskName.click();
+        //select time type
+        WebElement timeType = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[3]/UIAStaticText[1]"));
+        timeType.click();
+        WebElement timeTypeName = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
+        timeTypeName.click();
+        //click on comment link
+        WebElement commentLink = wd.findElement(By.xpath("//UIATableCell[4]/UIAStaticText[1]"));
+        commentLink.click();
+        WebElement comment = wd.findElements(By.className("UIATextView")).get(0);
+        comment.sendKeys("comment");
+        WebElement doneButton = wd.findElement(By.xpath("//UIANavigationBar[1]/UIAButton[3]"));
+        doneButton.click();
+        //Add hours and save report
+        WebElement hourButton = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[6]/UIATextField[1]"));
+        hourButton.click();
+        WebElement minutes = wd.findElement(By.name("0. 1 of 25"));
+        minutes.sendKeys("4");
+        WebElement seconds = wd.findElement(By.name("0. 1 of 4"));
+        seconds.sendKeys("50");
+        //click on done buttons
+        WebElement hourDoneButton = wd.findElement(By.xpath("//UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]"));
+        hourDoneButton.click();
+        NavigationDoneButton(wd);
+        //click on week view
+        WebElement weekView = wd.findElement(By.name("Week"));
+        weekView.click();
+        WebElement nextArrow = wd.findElement(By.xpath("//UIAWindow[1]/UIAButton[2]"));
+        nextArrow.click();
+        //click on month view
+        WebElement monthView = wd.findElement(By.name("Month"));
+        monthView.click();
+        wd.findElement(By.name("CalendarHide.png")).click();
+        wd.findElement(By.name("CalendarShow.png")).click();
+        //click on today link
+        WebElement todayLink = wd.findElement(By.xpath("//UIAToolbar[1]/UIAButton[1]"));
+        todayLink.click();
+        //click back to day view
+        WebElement dayView = wd.findElement(By.xpath("//UIASegmentedControl[1]/UIAButton[1]"));
+        dayView.click();
 
-            Reporter.log("Time Report Added Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Time Report Added Successfully", true);
     }
 
     @Test(dependsOnMethods = {"AddTimeReport"})
-    public void EditTimeReport() {
-        try {
-            //Script followed by AddTimeReport
-            ImplicitlyWait(wd);
-            WebElement clickonTimeReport = wd.findElement(By.name("man2176/, 1090/, 4,50"));
-            clickonTimeReport.click();
-            //click on comment link
-            WebElement commentLink = wd.findElement(By.xpath("//UIATableCell[4]/UIAStaticText[1]"));
-            commentLink.click();
-            WebElement editComment = wd.findElements(By.className("UIATextView")).get(0);
-            editComment.sendKeys("comment edited");
-            NavigationDoneButton(wd);
-            //Edit hours and save report
-            WebElement editHourButton = wd.findElement(By.name("Hours"));
-            editHourButton.click();
-            WebElement editMinutes = wd.findElement(By.name("4. 5 of 25"));
-            editMinutes.sendKeys("7");
-            WebElement editSeconds = wd.findElement(By.name("50. 3 of 4"));
-            editSeconds.sendKeys("75");
-            WebElement clickOnDone = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]"));
-            clickOnDone.click();
-            Thread.sleep(3000);
-            WebElement saveEditedTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
-            saveEditedTimeReport.click();
-            Thread.sleep(3000);
+    public void EditTimeReport() throws InterruptedException{
+        //Script followed by AddTimeReport
+        ImplicitlyWait(wd);
+        WebElement clickonTimeReport = wd.findElement(By.name("man2176/, 1090/, 4,50"));
+        Assert.assertTrue(clickonTimeReport.isDisplayed(), "Time report is not added");
+        clickonTimeReport.click();
+        //click on comment link
+        WebElement commentLink = wd.findElement(By.xpath("//UIATableCell[4]/UIAStaticText[1]"));
+        commentLink.click();
+        WebElement editComment = wd.findElements(By.className("UIATextView")).get(0);
+        Assert.assertEquals("comment", editComment.getText());
+        editComment.sendKeys("comment edited");
+        NavigationDoneButton(wd);
+        //Edit hours and save report
+        WebElement editHourButton = wd.findElement(By.name("Hours"));
+        editHourButton.click();
+        WebElement editMinutes = wd.findElement(By.name("4. 5 of 25"));
+        editMinutes.sendKeys("7");
+        WebElement editSeconds = wd.findElement(By.name("50. 3 of 4"));
+        editSeconds.sendKeys("75");
+        WebElement clickOnDone = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIANavigationBar[1]/UIAButton[3]"));
+        clickOnDone.click();
+        Thread.sleep(3000);
+        WebElement saveEditedTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
+        saveEditedTimeReport.click();
+        Thread.sleep(3000);
+        Assert.assertTrue(clickonTimeReport.isDisplayed(), "Time report is not edited");
 
-            Reporter.log("Time Report Edited Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Time Report Edited Successfully", true);
     }
 
     @Test(dependsOnMethods = {"EditTimeReport"})
     public void DeleteTimeReport() {
-        try {
-            //Depends on Add and Edit time report
-            WebElement clickOnTimeReport = wd.findElement(By.name("man2176/, 1090/, 7,75"));
-            clickOnTimeReport.click();
-            //click on "Delete time report row" button
-            WebElement contactProjManager = wd.findElement(By.name("Contact project manager"));
-            contactProjManager.click();
-            WebElement clickOnCancel = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[3]/UIAActionSheet[1]/UIAButton[2]"));
-            clickOnCancel.click();
-            WebElement deleteTimeReport = wd.findElement(By.name("Delete time report row"));
-            deleteTimeReport.click();
-            AcceptAlert(wd);
+        //Depends on Add and Edit time report
+        WebElement clickOnTimeReport = wd.findElement(By.name("man2176/, 1090/, 7,75"));
+        Assert.assertTrue(clickOnTimeReport.isDisplayed(), "Time report is not edited");
+        clickOnTimeReport.click();
+        //click on "Delete time report row" button
+        WebElement contactProjManager = wd.findElement(By.name("Contact project manager"));
+        contactProjManager.click();
+        WebElement clickOnCancel = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[3]/UIAActionSheet[1]/UIAButton[2]"));
+        clickOnCancel.click();
+        WebElement deleteTimeReport = wd.findElement(By.name("Delete time report row"));
+        deleteTimeReport.click();
+        AcceptAlert(wd);
+        Assert.assertTrue(clickOnTimeReport.isDisplayed(), "Time report is not deleted");
 
-            Reporter.log("Time Report Deleted Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Time Report Deleted Successfully", true);
     }
 
     @Test(dependsOnMethods = {"DeleteTimeReport"})
-    public void AddEventTimeReport() {
-        try {
-            ImplicitlyWait(wd);
-            WebElement clickonCalendar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAToolbar[1]/UIAButton[2]"));
-            clickonCalendar.click();
-            wd.findElement(By.name("Show all calendars")).click();
-            wd.findElement(By.name("Done")).click();
-            WebElement eventClick = wd.findElement(By.name("New event, Bang, 1,00"));
-            eventClick.click();
-            WebElement customerName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            ExplicitlyWait(wd, customerName);
-            //select task
-            WebElement task = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
-            task.click();
-            WebElement taskName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-            taskName.click();
-            //select time type
-            WebElement timeType = wd.findElement(By.xpath("//UIATableCell[3]/UIAStaticText[1]"));
-            timeType.click();
-            WebElement timeTypeName = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
-            timeTypeName.click();
-            WebElement navigationDoneButton = wd.findElement(By.name("Done"));
-            navigationDoneButton.click();
-            Thread.sleep(3000);
-            WebElement clickOnEventTimeReport = wd.findElement(By.name("man2176/, 1090/, 1,00"));
-            clickOnEventTimeReport.click();
-            WebElement deleteEventTimeReport = wd.findElement(By.name("Delete time report row"));
-            deleteEventTimeReport.click();
-            Thread.sleep(3000);
-            wd.findElement(By.name("OK")).click();
-
-            Reporter.log("Event Time Report Added Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
+    public void AddEventTimeReport() throws InterruptedException {
+        ImplicitlyWait(wd);
+        WebElement clickonCalendar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAToolbar[1]/UIAButton[2]"));
+        clickonCalendar.click();
+        WebElement okClick=wd.findElement(By.name("OK"));
+        if (okClick.isDisplayed())
+        {
+            okClick.click();
         }
+        wd.findElement(By.name("Show all calendars")).click();
+        wd.findElement(By.name("Done")).click();
+        WebElement eventClick = wd.findElement(By.name("New event, Bang, 1,00"));
+        Assert.assertTrue(eventClick.isDisplayed(), "Calendar event is displayed");
+        eventClick.click();
+        WebElement customerName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        ExplicitlyWait(wd, customerName);
+        //select task
+        WebElement task = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
+        task.click();
+        WebElement taskName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
+        taskName.click();
+        //select time type
+        WebElement timeType = wd.findElement(By.xpath("//UIATableCell[3]/UIAStaticText[1]"));
+        timeType.click();
+        WebElement timeTypeName = wd.findElement(By.xpath("//UIATableCell[2]/UIAStaticText[1]"));
+        timeTypeName.click();
+        WebElement navigationDoneButton = wd.findElement(By.name("Done"));
+        navigationDoneButton.click();
+        Thread.sleep(3000);
+        WebElement clickOnEventTimeReport = wd.findElement(By.name("man2176/, 1090/, 1,00"));
+        Assert.assertTrue(clickOnEventTimeReport.isDisplayed(), "Calendar time report is not added");
+        clickOnEventTimeReport.click();
+        WebElement deleteEventTimeReport = wd.findElement(By.name("Delete time report row"));
+        deleteEventTimeReport.click();
+        Thread.sleep(3000);
+        wd.findElement(By.name("OK")).click();
+        Assert.assertTrue(clickOnEventTimeReport.isDisplayed(), "Calendar time report is not deleted");
+
+        Reporter.log("Event Time Report Added Successfully", true);
     }
 
     @Test(dependsOnMethods = {"AddEventTimeReport"})
-    public void ValidateMissingHoursAndSubmit() {
-        try {
-            ImplicitlyWait(wd);
-            WebElement selectMenu = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
-            selectMenu.click();
-            WebElement missingHours = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
-            missingHours.click();
-            WebElement selectWeek = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
-            selectWeek.click();
-            WebElement submitButton = wd.findElement(By.name("Submit"));
-            ExplicitlyWait(wd, submitButton);
-            WebElement submitWeek = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIASwitch[1]"));
-            submitWeek.click();
-            WebElement reportInclusive = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[2]/UIAStaticText[1]"));
-            reportInclusive.click();
-            WebElement selectDay = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
-            selectDay.click();
-            WebElement submitTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[5]/UIAStaticText[1]"));
-            submitTimeReport.click();
-            Thread.sleep(3000);
+    public void ValidateMissingHoursAndSubmit() throws InterruptedException {
+        ImplicitlyWait(wd);
+        WebElement selectMenu = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
+        Assert.assertTrue(selectMenu.isDisplayed(), "Menu option is not displayed");
+        selectMenu.click();
+        WebElement missingHours = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
+        Assert.assertTrue(missingHours.isEnabled(), "Missing hours is not clickable");
+        missingHours.click();
+        WebElement selectWeek = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
+        selectWeek.click();
+        WebElement submitButton = wd.findElement(By.name("Submit"));
+        ExplicitlyWait(wd, submitButton);
+        WebElement submitWeek = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIASwitch[1]"));
+        submitWeek.click();
+        WebElement reportInclusive = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[2]/UIAStaticText[1]"));
+        reportInclusive.click();
+        WebElement selectDay = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
+        selectDay.click();
+        WebElement submitTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[5]/UIAStaticText[1]"));
+        Assert.assertTrue(submitTimeReport.isEnabled(), "Submit button is not enabled");
+        submitTimeReport.click();
+        Thread.sleep(3000);
 
-            Reporter.log("Validated Missing Hours successfully", true);
-        } catch (Exception e) {
-            System.out.println(e);
-            FailureMessage();
-
-        }
+        Reporter.log("Validated Missing Hours successfully", true);
     }
 
     @Test(dependsOnMethods = {"ValidateMissingHoursAndSubmit"})
-    public void ValidateContactStaff() {
-        try {
-            ImplicitlyWait(wd);
-            WebElement selectMenuOption = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-            ExplicitlyWait(wd, selectMenuOption);
-            WebElement contactStaff = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[3]/UIAStaticText[1]"));
-            contactStaff.click();
-            WebElement searchUser = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableGroup[1]/UIASearchBar[1]"));
-            searchUser.sendKeys("G Null");
-            wd.findElement(By.name("Search")).click();
-            wd.findElement(By.name("Clear text")).click();
-            wd.findElement(By.name("Search")).click();
-            wd.findElement(By.name("Departments")).click();
-            wd.findElement(By.name("All employees")).click();
-            Thread.sleep(3000);
-            WebElement selectContact = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
-            selectContact.click();
-            WebElement backClick = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-            backClick.click();
+    public void ValidateContactStaff() throws InterruptedException {
+        ImplicitlyWait(wd);
+        WebElement selectMenuOption = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
+        Assert.assertTrue(selectMenuOption.isDisplayed(), "Menu option is not displayed");
+        ExplicitlyWait(wd, selectMenuOption);
+        WebElement contactStaff = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[3]/UIAStaticText[1]"));
+        Assert.assertTrue(contactStaff.isDisplayed(), "Contact Staff is not clickable");
+        contactStaff.click();
+        WebElement searchUser = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableGroup[1]/UIASearchBar[1]"));
+        searchUser.sendKeys("G Null");
+        Assert.assertEquals("G Null", searchUser.getText());
+        wd.findElement(By.name("Search")).click();
+        wd.findElement(By.name("Clear text")).click();
+        wd.findElement(By.name("Search")).click();
+        wd.findElement(By.name("Departments")).click();
+        wd.findElement(By.name("All employees")).click();
+        Thread.sleep(3000);
+        WebElement selectContact = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
+        Assert.assertTrue(selectContact.isDisplayed(),"Contact option is not displayed");
+        selectContact.click();
+        WebElement backClick = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
+        Assert.assertTrue(backClick.isDisplayed(),"Back button is not displayed");
+        backClick.click();
 
 
-            Reporter.log("Validated Contact Staff successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Validated Contact Staff successfully", true);
     }
 
     @Test(dependsOnMethods = {"ValidateContactStaff"})
     public void Logout() {
-        try {
-            //Click on the bar button to select logout link
-            WebElement selectMenuBar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-            selectMenuBar.click();
-            WebElement clickOnLogout = wd.findElement(By.name("Logout"));
-            clickOnLogout.click();
-            AcceptAlert(wd);
+        //Click on the bar button to select logout link
+        WebElement selectMenuBar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
+        Assert.assertTrue(selectMenuBar.isDisplayed(),"Select menu bar is not displayed");
+        selectMenuBar.click();
+        WebElement clickOnLogout = wd.findElement(By.name("Logout"));
+        Assert.assertTrue(clickOnLogout.isDisplayed(),"Logout button is not displayed");
+        clickOnLogout.click();
+        AcceptAlert(wd);
 
-            Reporter.log("Logout tested Successfully", true);
-        } catch (Exception e) {
-            FailureMessage();
-        }
+        Reporter.log("Logout tested Successfully", true);
     }
 
     public void AddUserDetails(String name, String companyName, String address) {
         WebElement user = wd.findElement(By.className("UIATextField"));
+        Assert.assertTrue(user.isDisplayed(),"Name field is not displayed");
         user.sendKeys(name);
         WebElement company = wd.findElements(By.className("UIATextField")).get(1);
+        Assert.assertTrue(company.isDisplayed(),"Company field is not displayed");
         company.sendKeys(companyName);
         WebElement url = wd.findElements(By.className("UIATextField")).get(2);
+        Assert.assertTrue(user.isDisplayed(),"Name field is not displayed");
         url.sendKeys(address);
     }
 
@@ -484,17 +414,15 @@ public class IOSDeviceTest {
         alert.accept();
     }
 
-    public void FailureMessage() {
-        Reporter.log("Test Case Failed");
-    }
-
     public void KeyboardDoneButton(WebDriver wd) {
         WebElement keyboardDoneButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAToolbar[1]/UIAButton[2]"));
+        Assert.assertTrue(keyboardDoneButton.isDisplayed(),"Done option is not displayed");
         keyboardDoneButton.click();
     }
 
     public void NavigationDoneButton(WebDriver wd) {
         WebElement navigationDoneButton = wd.findElement(By.name("Done"));
+        Assert.assertTrue(navigationDoneButton.isDisplayed(),"Navigation done option is not displayed");
         navigationDoneButton.click();
     }
 
