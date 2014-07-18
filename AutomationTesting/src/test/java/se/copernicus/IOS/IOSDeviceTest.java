@@ -36,7 +36,7 @@ public class IOSDeviceTest {
             capabilities.setCapability("deviceName", "Indpro iPhone 4S");
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("udid", "b2784fc98bd0ecc5764f3b14b4c1bdc1f10daa28");
-            wd = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            wd = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
             ImplicitlyWait(wd);
 
             Reporter.log("App launched", true);
@@ -50,7 +50,7 @@ public class IOSDeviceTest {
 
     @AfterMethod
     public void tearDown() {
-        // wd.quit();
+        wd.quit();
     }
 
     /*

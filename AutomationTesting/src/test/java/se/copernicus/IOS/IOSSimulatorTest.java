@@ -38,7 +38,7 @@ public class IOSSimulatorTest
             capabilities.setCapability("platformName", "ios");
             capabilities.setCapability("deviceName", "iPhone");
             capabilities.setCapability("app", app.getAbsolutePath());
-           	wd= new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+           	wd= new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
 
 		Reporter.log("App launched",true);
