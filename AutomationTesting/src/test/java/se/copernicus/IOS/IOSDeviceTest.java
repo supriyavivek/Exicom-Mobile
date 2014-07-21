@@ -55,7 +55,7 @@ public class IOSDeviceTest {
         Thread.sleep(3000);
         //Click on Add user link
         WebElement clickAddUserLink = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
-      //  Assert.assertTrue(clickAddUserLink.isDisplayed(), "User link is displayed");
+        Assert.assertTrue(clickAddUserLink.isDisplayed(), "User link is displayed");
         clickAddUserLink.click();
         AddUserDetails("10", "1000", "192.168.1.109:7070");
         KeyboardDoneButton(wd);
@@ -99,11 +99,11 @@ public class IOSDeviceTest {
         WebElement ClickSelectedUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[2]/UIAButton[1]"));
         ClickSelectedUser.click();
         WebElement resetButton=wd.findElement(By.name("Reset"));
-        //Assert.assertTrue(resetButton.isEnabled(), "Reset button is enabled");
+        Assert.assertTrue(resetButton.isEnabled(), "Reset button is enabled");
         resetButton.click();
         AcceptAlert(wd);
         WebElement deleteUser=wd.findElement(By.name("Delete user"));
-        //Assert.assertTrue(deleteUser.isDisplayed(), "Delete user button is displayed");
+        Assert.assertTrue(deleteUser.isDisplayed(), "Delete user button is displayed");
         deleteUser.click();
         AcceptAlert(wd);
         WebElement clickExistingUser = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
@@ -120,13 +120,15 @@ public class IOSDeviceTest {
         incorrectPassword.sendKeys("WrongPassword");
         KeyboardDoneButton(wd);
         WebElement clickLogin = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
-        //Assert.assertTrue(clickLogin.isDisplayed(), "Login button is displayed");
+        Assert.assertTrue(clickLogin.isDisplayed(), "Login button is displayed");
         clickLogin.click();
         Thread.sleep(3000);
         //Alert pop up for wrong password
         WebElement clickOK = wd.findElement(By.name("OK"));
-       // Assert.assertFalse(clickOK.isDisplayed(), "OK button is not displayed");
+        Assert.assertTrue(clickOK.isDisplayed(), "OK button is displayed");
         ExplicitlyWait(wd, clickOK);
+
+        Reporter.log("Delete User tested Successfully", true);
     }
 
     @Test(dependsOnMethods = {"InvalidPassword"})
@@ -138,7 +140,7 @@ public class IOSDeviceTest {
         KeyboardDoneButton(wd);
         //click on login button
         WebElement loginButton = wd.findElement(By.xpath("//UIATableView[1]/UIATableCell[4]/UIAStaticText[1]"));
-        //Assert.assertFalse(loginButton.isDisplayed(), "Login button is not dislayed");
+        Assert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
         loginButton.click();
         Thread.sleep(3000);
 
@@ -150,12 +152,12 @@ public class IOSDeviceTest {
         //Prerequisite login script should be executed
         ImplicitlyWait(wd);
         WebElement clickOnAddTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
-        //Assert.assertFalse(clickOnAddTimeReport.isDisplayed(), "Add time report is not displayed");
+        Assert.assertTrue(clickOnAddTimeReport.isDisplayed(), "Add time report is not displayed");
         clickOnAddTimeReport.click();
         List<WebElement> custProjActivityLink = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
         custProjActivityLink.get(0).click();
         WebElement search=wd.findElement(By.name("Search"));
-       // Assert.assertFalse(search.isEnabled(),"Search option is not enabled");
+        Assert.assertTrue(search.isEnabled(),"Search option is not enabled");
         search.click();
         Thread.sleep(3000);
         WebElement searchBar = wd.findElement(By.xpath("//UIATableView[1]/UIATableGroup[1]/UIASearchBar[1]"));
@@ -190,7 +192,7 @@ public class IOSDeviceTest {
         //Prerequisite login script should be executed
         ImplicitlyWait(wd);
         WebElement clickOnAddTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]"));
-       // Assert.assertFalse(clickOnAddTimeReport.isDisplayed(), "Add time report is not displayed");
+        Assert.assertTrue(clickOnAddTimeReport.isDisplayed(), "Add time report is not displayed");
         clickOnAddTimeReport.click();
         //Select the customer project and activity
         List<WebElement> custProjActivityLink = wd.findElements(By.xpath("//UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
@@ -250,13 +252,13 @@ public class IOSDeviceTest {
         //Script followed by AddTimeReport
         ImplicitlyWait(wd);
         WebElement clickonTimeReport = wd.findElement(By.name("man2176/, 1090/, 4,50"));
-      //  Assert.assertFalse(clickonTimeReport.isDisplayed(), "Time report is not added");
+        Assert.assertTrue(clickonTimeReport.isDisplayed(), "Time report is not added");
         clickonTimeReport.click();
         //click on comment link
         WebElement commentLink = wd.findElement(By.xpath("//UIATableCell[4]/UIAStaticText[1]"));
         commentLink.click();
         WebElement editComment = wd.findElements(By.className("UIATextView")).get(0);
-        //Assert.assertEquals("comment", editComment.getText());
+        Assert.assertEquals("comment", editComment.getText());
         editComment.sendKeys("comment edited");
         NavigationDoneButton(wd);
         //Edit hours and save report
@@ -280,7 +282,7 @@ public class IOSDeviceTest {
     public void DeleteTimeReport() {
         //Depends on Add and Edit time report
         WebElement clickOnTimeReport = wd.findElement(By.name("man2176/, 1090/, 7,75"));
-       // Assert.assertFalse(clickOnTimeReport.isDisplayed(), "Time report is not edited");
+        Assert.assertTrue(clickOnTimeReport.isDisplayed(), "Time report is not edited");
         clickOnTimeReport.click();
         //click on "Delete time report row" button
         WebElement contactProjManager = wd.findElement(By.name("Contact project manager"));
@@ -290,7 +292,7 @@ public class IOSDeviceTest {
         WebElement deleteTimeReport = wd.findElement(By.name("Delete time report row"));
         deleteTimeReport.click();
         AcceptAlert(wd);
-       // Assert.assertFalse(clickOnTimeReport.isDisplayed(), "Time report is not deleted");
+        Assert.assertFalse(clickOnTimeReport.isDisplayed(), "Time report is not deleted");
 
         Reporter.log("Time Report Deleted Successfully", true);
     }
@@ -308,7 +310,7 @@ public class IOSDeviceTest {
         wd.findElement(By.name("Show all calendars")).click();
         wd.findElement(By.name("Done")).click();
         WebElement eventClick = wd.findElement(By.name("New event, Bang, 1,00"));
-        //Assert.assertTrue(eventClick.isDisplayed(), "Calendar event is displayed");
+        Assert.assertTrue(eventClick.isDisplayed(), "Calendar event is displayed");
         eventClick.click();
         WebElement customerName = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]"));
         ExplicitlyWait(wd, customerName);
@@ -326,13 +328,13 @@ public class IOSDeviceTest {
         navigationDoneButton.click();
         Thread.sleep(3000);
         WebElement clickOnEventTimeReport = wd.findElement(By.name("man2176/, 1090/, 1,00"));
-      //  Assert.assertFalse(clickOnEventTimeReport.isDisplayed(), "Calendar time report is not added");
+        Assert.assertTrue(clickOnEventTimeReport.isDisplayed(), "Calendar time report is added");
         clickOnEventTimeReport.click();
         WebElement deleteEventTimeReport = wd.findElement(By.name("Delete time report row"));
         deleteEventTimeReport.click();
         Thread.sleep(3000);
         wd.findElement(By.name("OK")).click();
-       // Assert.assertFalse(clickOnEventTimeReport.isDisplayed(), "Calendar time report is not deleted");
+        Assert.assertFalse(clickOnEventTimeReport.isDisplayed(), "Calendar time report is not deleted");
 
         Reporter.log("Event Time Report Added Successfully", true);
     }
@@ -341,10 +343,10 @@ public class IOSDeviceTest {
     public void ValidateMissingHoursAndSubmit() throws InterruptedException {
         ImplicitlyWait(wd);
         WebElement selectMenu = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]"));
-        //Assert.assertFalse(selectMenu.isDisplayed(), "Menu option is not displayed");
+        Assert.assertTrue(selectMenu.isDisplayed(), "Menu option is not displayed");
         selectMenu.click();
         WebElement missingHours = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]"));
-        //Assert.assertFalse(missingHours.isEnabled(), "Missing hours is not clickable");
+        Assert.assertTrue(missingHours.isEnabled(), "Missing hours is not clickable");
         missingHours.click();
         WebElement selectWeek = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
         selectWeek.click();
@@ -357,7 +359,7 @@ public class IOSDeviceTest {
         WebElement selectDay = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
         selectDay.click();
         WebElement submitTimeReport = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[5]/UIAStaticText[1]"));
-       // Assert.assertTrue(submitTimeReport.isEnabled(), "Submit button is enabled");
+        Assert.assertTrue(submitTimeReport.isEnabled(), "Submit button is enabled");
         submitTimeReport.click();
         Thread.sleep(3000);
 
@@ -368,14 +370,14 @@ public class IOSDeviceTest {
     public void ValidateContactStaff() throws InterruptedException {
         ImplicitlyWait(wd);
         WebElement selectMenuOption = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-       // Assert.assertTrue(selectMenuOption.isDisplayed(), "Menu option is displayed");
+        Assert.assertTrue(selectMenuOption.isDisplayed(), "Menu option is displayed");
         ExplicitlyWait(wd, selectMenuOption);
         WebElement contactStaff = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[3]/UIAStaticText[1]"));
-       // Assert.assertTrue(contactStaff.isDisplayed(), "Contact Staff is clickable");
+        Assert.assertTrue(contactStaff.isDisplayed(), "Contact Staff is clickable");
         contactStaff.click();
         WebElement searchUser = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableGroup[1]/UIASearchBar[1]"));
         searchUser.sendKeys("G Null");
-       // Assert.assertEquals("G Null", searchUser.getText());
+        Assert.assertEquals("G Null", searchUser.getText());
         wd.findElement(By.name("Search")).click();
         wd.findElement(By.name("Clear text")).click();
         wd.findElement(By.name("Search")).click();
@@ -383,10 +385,15 @@ public class IOSDeviceTest {
         wd.findElement(By.name("All employees")).click();
         Thread.sleep(3000);
         WebElement selectContact = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
-      //  Assert.assertTrue(selectContact.isDisplayed(),"Contact option is displayed");
+        Assert.assertTrue(selectContact.isDisplayed(),"Contact option is displayed");
         selectContact.click();
+        WebElement okClick=wd.findElement(By.name("OK"));
+        if (okClick.isDisplayed())
+        {
+            okClick.click();
+        }
         WebElement backClick = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-       // Assert.assertTrue(backClick.isDisplayed(),"Back button is displayed");
+        Assert.assertTrue(backClick.isDisplayed(),"Back button is displayed");
         backClick.click();
 
 
@@ -397,10 +404,10 @@ public class IOSDeviceTest {
     public void Logout() {
         //Click on the bar button to select logout link
         WebElement selectMenuBar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
-        //Assert.assertFalse(selectMenuBar.isDisplayed(),"Select menu bar is not displayed");
+        Assert.assertTrue(selectMenuBar.isDisplayed(),"Select menu bar is not displayed");
         selectMenuBar.click();
         WebElement clickOnLogout = wd.findElement(By.name("Logout"));
-       // Assert.assertFalse(clickOnLogout.isDisplayed(),"Logout button is not displayed");
+        Assert.assertTrue(clickOnLogout.isDisplayed(),"Logout button is not displayed");
         clickOnLogout.click();
         AcceptAlert(wd);
 
@@ -409,7 +416,7 @@ public class IOSDeviceTest {
 
     public void AddUserDetails(String name, String companyName, String address) {
         WebElement user = wd.findElement(By.className("UIATextField"));
-       // Assert.assertFalse(user.isDisplayed(),"Name field is not displayed");
+        Assert.assertTrue(user.isDisplayed(),"Name field is not displayed");
         user.sendKeys(name);
         WebElement company = wd.findElements(By.className("UIATextField")).get(1);
         company.sendKeys(companyName);
@@ -424,13 +431,13 @@ public class IOSDeviceTest {
 
     public void KeyboardDoneButton(WebDriver wd) {
         WebElement keyboardDoneButton = wd.findElement(By.xpath("//UIAWindow[2]/UIAToolbar[1]/UIAButton[2]"));
-       // Assert.assertFalse(keyboardDoneButton.isDisplayed(),"Done option is not displayed");
+        Assert.assertTrue(keyboardDoneButton.isDisplayed(),"Done option is not displayed");
         keyboardDoneButton.click();
     }
 
     public void NavigationDoneButton(WebDriver wd) {
         WebElement navigationDoneButton = wd.findElement(By.name("Done"));
-       // Assert.assertFalse(navigationDoneButton.isDisplayed(),"Navigation done option is not displayed");
+        Assert.assertTrue(navigationDoneButton.isDisplayed(),"Navigation done option is not displayed");
         navigationDoneButton.click();
     }
 
