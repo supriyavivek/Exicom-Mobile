@@ -39,7 +39,7 @@ public class AndroidDeviceTest
     @AfterClass
     public void TearDown()
     {
-        wd.quit();
+       // wd.quit();
     }
 
     @Test
