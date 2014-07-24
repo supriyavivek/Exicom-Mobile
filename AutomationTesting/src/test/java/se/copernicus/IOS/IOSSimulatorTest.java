@@ -32,7 +32,7 @@ public class IOSSimulatorTest
     @BeforeClass
     public void setUp() throws InterruptedException, MalformedURLException
     {
-        String appdirectory = System.getProperty("user.dir")+"/Users/indpro/Desktop/iPhone Simulator.app";
+        String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
         File appDir = new File(appdirectory);
         File app=new File(appDir, "cTimeSheetSimulator.app");
         DesiredCapabilities capabilities = new DesiredCapabilities();

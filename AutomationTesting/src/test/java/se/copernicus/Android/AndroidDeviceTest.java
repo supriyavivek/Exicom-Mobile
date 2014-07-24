@@ -4,7 +4,6 @@ import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.collections.map.HashedMap;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -41,7 +40,7 @@ public class AndroidDeviceTest
     @AfterClass
     public void TearDown()
     {
-       // wd.quit();
+       wd.quit();
     }
 
     @Test
@@ -54,8 +53,21 @@ public class AndroidDeviceTest
         addNewUser.click();
         WebElement userName = wd.findElement(By.id("se.copernicus:id/edittext_adduserpage_username"));
         userName.sendKeys("10");
+//        WebElement correctCompanyId =wd.findElement(By.id("se.copernicus:id/edittext_adduserpage_businessname"));
+//        correctCompanyId.sendKeys("1000");
+//        WebElement address = wd.findElement(By.id("se.copernicus:id/edittext_adduserpage_address"));
+//        address.sendKeys("192.168.1.109:7070");
         GoBack(wd);
         Save();
+//        WebElement passwordLink = wd.findElement(By.id("se.copernicus:id/textview_logginpage_password"));
+//        passwordLink.click();
+//        WebElement password = wd.findElement(By.id("se.copernicus:id/edittext_loginscreen_dialog_text"));
+//        password.sendKeys("password");
+//        ClickOk(wd);
+//        WebElement login = wd.findElement(By.id("se.copernicus:id/button_login"));
+//        login.click();
+//        WebElement menuLogo=wd.findElement(By.id("se.copernicus:id/img_menu_logo"));
+//        Assert.assertTrue(menuLogo.isDisplayed(), "Login failed");
         AcceptAlert();
         Reporter.log("Require Field Validation Successful", true);
     }
@@ -64,22 +76,22 @@ public class AndroidDeviceTest
     public void VerifyIncorrectData()
     {
         ImplicitWait(wd, 1, TimeUnit.MINUTES);
-        WebElement incorrectCompanyId = wd.findElements(By.className("android.widget.EditText")).get(1);
+        WebElement incorrectCompanyId = wd.findElement(By.id("se.copernicus:id/edittext_adduserpage_businessname"));
         Assert.assertTrue(incorrectCompanyId.isDisplayed(), "Company textbox field is not displayed");
         incorrectCompanyId.sendKeys("123");
-        WebElement address = wd.findElements(By.className("android.widget.EditText")).get(2);
+        WebElement address = wd.findElement(By.id("se.copernicus:id/edittext_adduserpage_address"));
         address.click();
         address.sendKeys("192.168.1.109:7070");
         GoBack(wd);
         Save();
-        WebElement passwordLink = wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]"));
+        WebElement passwordLink = wd.findElement(By.id("se.copernicus:id/textview_logginpage_password"));
         passwordLink.click();
-        WebElement password = wd.findElement(By.className("android.widget.EditText"));
+        WebElement password = wd.findElement(By.id("se.copernicus:id/edittext_loginscreen_dialog_text"));
         password.sendKeys("WrongPassword");
         ClickOk(wd);
-        WebElement login = wd.findElement(By.className("android.widget.Button"));
+        WebElement login = wd.findElement(By.id("se.copernicus:id/button_login"));
         login.click();
-        WebElement okClick=wd.findElement(By.name("OK"));
+        WebElement okClick=wd.findElement(By.id("android:id/button1"));
         okClick.click();
         Reporter.log("Verification of Incorrect Data Successful", true);
     }
@@ -89,33 +101,37 @@ public class AndroidDeviceTest
     {
         //Code to change user detail and verify warning message
         ImplicitWait(wd, 1, TimeUnit.MINUTES);
-        WebElement clickUserName=wd.findElement(By.className("android.widget.ImageView"));
+        WebElement clickUserName=wd.findElement(By.id("se.copernicus:id/imageview_logginpage_viewusernames"));
         clickUserName.click();
-        WebElement clickExistingUser =wd.findElement(By.className("android.widget.ImageView"));
+        WebElement clickExistingUser =wd.findElement(By.id("se.copernicus:id/imageview_userdetails_opendetails"));
         clickExistingUser.click();
-        WebElement correctCompanyId =wd.findElements(By.className("android.widget.EditText")).get(1);
-        Thread.sleep(2000);
+        WebElement correctCompanyId =wd.findElement(By.id("se.copernicus:id/edittext_individualuser_businessname"));
+        Assert.assertEquals(correctCompanyId.getText(), "123");
         correctCompanyId.click();
-        WebElement selectAll=wd.findElement(By.className("android.widget.TextView"));
-        selectAll.click();
+        Thread.sleep(3000);
         correctCompanyId.clear();
         correctCompanyId.sendKeys("1000");
+        String compName=correctCompanyId.getText();
+        if (compName.equals("1000123")) {
+            String correctedCompName = compName.replace(compName,"1000");
+            correctCompanyId.sendKeys(correctedCompName);
+        }
+        Assert.assertEquals(correctCompanyId.getText(), "1000");
         GoBack(wd);
-        Save();
+        WebElement saveClick=wd.findElement(By.id("se.copernicus:id/button_individualuser_save"));
+        saveClick.click();
         AcceptAlert();
-        WebElement usrName=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[2]"));
+        WebElement usrName=wd.findElement(By.id("se.copernicus:id/textview_logginpage_companyid"));
         String Name=usrName.getText();
         Assert.assertEquals(Name, "1000", "User name is not correct");
-        WebElement passwordLink=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]"));
+        WebElement passwordLink = wd.findElement(By.id("se.copernicus:id/textview_logginpage_password"));
         passwordLink.click();
-        WebElement password=wd.findElement(By.className("android.widget.EditText"));
+        WebElement password = wd.findElement(By.id("se.copernicus:id/edittext_loginscreen_dialog_text"));
         password.sendKeys("password");
         ClickOk(wd);
-        WebElement login = wd.findElement(By.className("android.widget.Button"));
+        WebElement login = wd.findElement(By.id("se.copernicus:id/button_login"));
         login.click();
         Thread.sleep(3000);
-        Assert.assertTrue(login.isDisplayed(), "Login is failed");
-
         Reporter.log("Edit User Details and Login Successful", true);
     }
 
@@ -123,52 +139,53 @@ public class AndroidDeviceTest
     public void AddTimeReport() throws Exception
     {
         ImplicitWait(wd, 1, TimeUnit.MINUTES);
-        Thread.sleep(3000);
+        Thread.sleep(8000);
         //click on "+" symbol to add time report
         WebElement addTimeReport=wd.findElement(By.id("se.copernicus:id/imageview_daypage_addtimereport_month_view"));
         Assert.assertTrue(addTimeReport.isDisplayed(),"Add time report option is not enabled");
         ExplicitWait(wd, 180, addTimeReport);
         //click on "customer,Project and Activity"
-        WebElement clickOnCustomerProjAndActivity=wd.findElement(By.name("Customer, Project and Activity"));
+        WebElement clickOnCustomerProjAndActivity=wd.findElement(By.id("se.copernicus:id/textview_newtimereport_clientprojectactivitytitle"));
         clickOnCustomerProjAndActivity.click();
         WebElement customer=wd.findElements(By.className("android.widget.RadioButton")).get(0);
         customer.click();
         //click on "task"
-        WebElement task = wd.findElements(By.className("android.widget.ImageView")).get(0);
+        WebElement task = wd.findElement(By.id("se.copernicus:id/imageview_newtimereport_worktype"));
         task.click();
         WebElement taskName =wd.findElements(By.className("android.widget.RadioButton")).get(1);
         taskName.click();
         //click on "TimeType" text
-        WebElement timeType = wd.findElements(By.className("android.widget.ImageView")).get(1);
+        WebElement timeType = wd.findElement(By.id("se.copernicus:id/imageview_newtimereport_tidart"));
         timeType.click();
         WebElement timeTypeName =wd.findElements(By.className("android.widget.RadioButton")).get(1);
         timeTypeName.click();
         //click on comment and add comment
-        WebElement comment=wd.findElements(By.className("android.widget.EditText")).get(0);
+        WebElement comment=wd.findElement(By.id("se.copernicus:id/edittext_newtimereport_comment"));
         comment.click();
         comment.sendKeys("Comment");
         GoBack(wd);
         //Click on "Hours" button
-        WebElement hours=wd.findElement(By.name("Hours"));
+        WebElement hours=wd.findElement(By.id("se.copernicus:id/textview_newtimereport_arbetadid"));
         hours.click();
         List<WebElement> adjustHours = wd.findElements(By.className("android.widget.ImageButton"));
         adjustHours.get(2).click();
         adjustHours.get(2).click();
         adjustHours.get(4).click();
-        WebElement okClick=wd.findElement(By.name("OK"));
+        WebElement okClick=wd.findElement(By.id("se.copernicus:id/button_newtimereport_dialog_OK"));
         okClick.click();
         Thread.sleep(3000);
-        Save();
-        WebElement clickOnCustomerName=wd.findElement(By.name("1090/"));
-        clickOnCustomerName.isDisplayed();
+        WebElement saveClick=wd.findElement(By.id("se.copernicus:id/button_newtimereport_save"));
+        saveClick.click();
+        Thread.sleep(5000);
         Reporter.log("Time Report Added Successfully", true);
     }
 
-    @Test (dependsOnMethods = {"EditUserDetailsAndLogin"})
+    @Test (dependsOnMethods = {"AddTimeReport"})
     public void EditTimeReport() throws Exception
     {
         ImplicitWait(wd, 1, TimeUnit.MINUTES);
         //Click on Day tab
+        Thread.sleep(5000);
         WebElement dayTab=wd.findElement(By.name("Day"));
         dayTab.click();
         //Value hard coded
@@ -176,13 +193,20 @@ public class AndroidDeviceTest
         Assert.assertTrue(clickOnCustomerName.isDisplayed(),"Time report is not added");
         clickOnCustomerName.click();
         //Edit comment and save
-        WebElement editComment=wd.findElements(By.className("android.widget.EditText")).get(0);
+        WebElement editComment=wd.findElement(By.id("se.copernicus:id/edittext_newtimereport_comment"));
+        Assert.assertEquals(editComment.getText(), "Comment");
         Thread.sleep(2000);
         editComment.clear();
         editComment.sendKeys("Edited comment");
+        String comment=editComment.getText();
+        if (comment.equals("Edited commentComment")) {
+            String replaceComment = comment.replace(comment,"Edited comment");
+            editComment.sendKeys(replaceComment);
+        }
+        Assert.assertEquals(editComment.getText(), "Edited comment");
         GoBack(wd);
         //Click on "Hours" button and edit hours
-        WebElement editHours=wd.findElement(By.name("Hours"));
+        WebElement editHours=wd.findElement(By.id("se.copernicus:id/textview_newtimereport_arbetadid"));
         editHours.click();
         List<WebElement> editAdjustedHours = wd.findElements(By.className("android.widget.ImageButton"));
         editAdjustedHours.get(2).click();
@@ -191,7 +215,10 @@ public class AndroidDeviceTest
         WebElement okClick=wd.findElement(By.name("OK"));
         okClick.click();
         Thread.sleep(3000);
-        Save();
+        WebElement saveEditedTimeReport=wd.findElement(By.id("se.copernicus:id/button_edittimereport_save"));
+        saveEditedTimeReport.click();
+        WebElement verifyCustomerName=wd.findElement(By.name("1090/"));
+        verifyCustomerName.isDisplayed();
         Reporter.log("Time Report Edited Successfully", true);
     }
 
@@ -211,23 +238,24 @@ public class AndroidDeviceTest
     public void MissingTime() throws InterruptedException
     {
         ImplicitWait(wd, 1, TimeUnit.MINUTES);
-        WebElement clickOnMenuBar = wd.findElements(By.className("android.widget.ImageView")).get(0);
+        WebElement clickOnMenuBar = wd.findElement(By.id("se.copernicus:id/img_menu_logo"));
         clickOnMenuBar.click();
         WebElement missingTimeTab=wd.findElement(By.name("Missing Time"));
         missingTimeTab.click();
         WebElement missingTime = wd.findElement(By.xpath("//android.view.View[1]/android.widget.ListView[1]/android.widget.LinearLayout[1]/android.widget.ImageView[1]"));
         missingTime.click();
-        WebElement clickOnOptions=wd.findElement(By.xpath("//android.view.View[1]/android.widget.RelativeLayout[1]"));
+        Thread.sleep(3000);
+        WebElement clickOnOptions=wd.findElement(By.id("se.copernicus:id/relative_layout_img_option_menu_button"));
         clickOnOptions.click();
-        WebElement submitMissingTime = wd.findElement(By.name("Submit"));
+        WebElement submitMissingTime = wd.findElement(By.id("R.id.popup_submit_item"));
         submitMissingTime.click();
-        WebElement submitPartOfWeek = wd.findElement(By.name("Submit part of week"));
+        WebElement submitPartOfWeek = wd.findElement(By.id("se.copernicus:id/checkbox_turnintimereport"));
         submitPartOfWeek.click();
-        WebElement reportInclusive = wd.findElement(By.className("android.widget.ImageView"));
+        WebElement reportInclusive = wd.findElement(By.id("se.copernicus:id/imageview_turnintimereportto_nextarrow"));
         reportInclusive.click();
         WebElement selectDay = wd.findElement(By.className("android.widget.CheckedTextView"));
         selectDay.click();
-        WebElement submit = wd.findElement(By.className("android.widget.Button"));
+        WebElement submit = wd.findElement(By.id("se.copernicus:id/button_turnintimereport_submit"));
         submit.click();
         Thread.sleep(3000);
         if (submit.isDisplayed())
@@ -239,21 +267,21 @@ public class AndroidDeviceTest
         Thread.sleep(3000);
     }
 
-    @Test (dependsOnMethods = {"EditTimeReport"})
+    @Test (dependsOnMethods = {"MissingTime"})
     public void Settings()
     {
         ImplicitWait(wd, 1, TimeUnit.MINUTES);
-        WebElement clickOnOptions=wd.findElement(By.xpath("//android.widget.RelativeLayout[1]/android.view.View[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
+        WebElement clickOnOptions=wd.findElement(By.id("se.copernicus:id/relative_layout_img_option_menu_button"));
         clickOnOptions.click();
-        WebElement settings = wd.findElement(By.name("Settings"));
+        WebElement settings = wd.findElement(By.id("R.id.popup_settings_item"));
         settings.click();
-        WebElement privateComment=wd.findElements(By.className("android.widget.CheckBox")).get(1);
+        WebElement privateComment=wd.findElement(By.id("se.copernicus:id/checkbox_settings_privatecomment"));
         privateComment.click();
-        WebElement adjustedHours=wd.findElements(By.className("android.widget.CheckBox")).get(2);
+        WebElement adjustedHours=wd.findElement(By.id("se.copernicus:id/checkbox_settings_adjustment_of_time"));
         adjustedHours.click();
-        WebElement priceDeviation=wd.findElements(By.className("android.widget.CheckBox")).get(3);
+        WebElement priceDeviation=wd.findElement(By.id("se.copernicus:id/checkbox_settings_charge_per_hour_rate"));
         priceDeviation.click();
-        WebElement viewPhoneCalendar=wd.findElement(By.xpath("//android.widget.RelativeLayout[5]/android.widget.ImageView[1]"));
+        WebElement viewPhoneCalendar=wd.findElement(By.id("se.copernicus:id/imageview_settings_calender"));
         viewPhoneCalendar.click();
         WebElement calendars=wd.findElements(By.className("android.widget.CheckedTextView")).get(0);
         calendars.click();
