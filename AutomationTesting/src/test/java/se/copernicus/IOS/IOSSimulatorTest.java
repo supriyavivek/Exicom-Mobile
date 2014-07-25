@@ -308,7 +308,9 @@ public class IOSSimulatorTest
         WebElement clickonCalendar = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAToolbar[1]/UIAButton[2]"));
         Assert.assertTrue(clickonCalendar.isDisplayed(), "Calendar option is not displayed");
         clickonCalendar.click();
-        //wd.findElement(By.name("OK")).click();
+        if ((wd.findElement(By.name("OK"))).isDisplayed()) {
+            wd.findElement(By.name("OK")).click();
+        }
         wd.findElement(By.name("Show all calendars")).click();
         wd.findElement(By.name("Done")).click();
         WebElement calendarEvent=wd.findElement(By.name("New event, bang, 1,00"));
@@ -392,7 +394,9 @@ public class IOSSimulatorTest
         WebElement selectContact = wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]"));
         Assert.assertTrue(selectContact.isDisplayed(),"Contact option is not displayed");
         selectContact.click();
-       // wd.findElement(By.name("OK")).click();
+        if ((wd.findElement(By.name("OK"))).isDisplayed()) {
+            wd.findElement(By.name("OK")).click();
+        }
         WebElement backClick=wd.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[2]/UIAButton[1]"));
         Thread.sleep(3000);
         backClick.click();
