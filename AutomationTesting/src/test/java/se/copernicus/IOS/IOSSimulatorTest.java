@@ -13,7 +13,6 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -39,7 +38,7 @@ public class IOSSimulatorTest
         capabilities.setCapability("platformName", "ios");
         capabilities.setCapability("deviceName", "iPhone");
         capabilities.setCapability("app", app.getAbsolutePath());
-       // wd= new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+        wd= new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         ImplicitlyWait(wd);
 
         Reporter.log("App launched",true);
