@@ -48,7 +48,7 @@ public class IOSSimulatorTest
     @AfterClass
     public void tearDown()
     {
-        wd.quit();
+        wd.close();
     }
 
     @Test
