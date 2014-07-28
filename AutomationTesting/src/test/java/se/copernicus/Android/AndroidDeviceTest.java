@@ -69,7 +69,7 @@ public class AndroidDeviceTest
         login.click();
         WebElement menuLogo=wd.findElement(By.id("se.copernicus:id/img_menu_logo"));
         Assert.assertTrue(menuLogo.isDisplayed(), "Login failed");
-        AcceptAlert();
+//        AcceptAlert();
         Reporter.log("Require Field Validation Successful", true);
     }
 
