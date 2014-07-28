@@ -27,6 +27,7 @@ public class AndroidDeviceTest
         File app=new File(appDir, "CTimeSheet_v2.0.4.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("deviceName", "Google Nexus");
         capabilities.setCapability("appPackage", "se.copernicus");
         capabilities.setCapability("appActivity", ".SplashScreenPage");
         capabilities.setCapability("app", app.getAbsolutePath());
