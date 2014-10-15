@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="se.copernicus.IOS.EventTimeReport">
+        <methods>
+          <include name="tearDown"/>
+          <include name="test1AddEventTimeReport"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- se.copernicus.IOS.EventTimeReport -->
+      <class name="se.copernicus.IOS.MissingHours">
+        <methods>
+          <include name="setUp"/>
+          <include name="test1ValidateMissingHoursAndSubmit"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- se.copernicus.IOS.MissingHours -->
+      <class name="se.copernicus.IOS.TimeReport">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- se.copernicus.IOS.TimeReport -->
+      <class name="se.copernicus.IOS.ContactStaff">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- se.copernicus.IOS.ContactStaff -->
+      <class name="se.copernicus.IOS.Login">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- se.copernicus.IOS.Login -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

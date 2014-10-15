@@ -1,5 +1,9 @@
 package se.copernicus.IOS;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -26,7 +30,8 @@ public class IOSDeviceTest {
 	1) A Event should be added in current date ["New event", "bang", "1,00"]
 	*/
 
-    @BeforeClass
+    @BeforeMethod
+	@BeforeClass
     public void setUp() throws InterruptedException, MalformedURLException {
         String appdirectory = System.getProperty("user.dir")+"/src/test/resources";
         File appDir = new File(appdirectory);
@@ -43,7 +48,8 @@ public class IOSDeviceTest {
         Thread.sleep(3000);
     }
 
-    @AfterClass
+    @AfterMethod
+	@AfterClass
     public void tearDown() {
         wd.quit();
     }

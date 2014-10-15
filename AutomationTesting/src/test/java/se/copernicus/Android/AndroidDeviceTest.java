@@ -1,5 +1,9 @@
 package se.copernicus.Android;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
 import java.io.File;
 import java.net.URL;
 import java.util.List;

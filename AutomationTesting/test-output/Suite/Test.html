@@ -1,0 +1,365 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>10/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Oct 06 16:58:40 GMT+05:30 2014</td>
+</tr>
+<tr><td>Total time:</td><td>826 seconds (826956 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='se.copernicus.IOS.EventTimeReport.test1AddEventTimeReport()'><b>test1AddEventTimeReport</b><br>Test class: se.copernicus.IOS.EventTimeReport<br/>
+<a href="#Output-510067833" onClick='toggleBox("Output-510067833", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-510067833" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-510067833">
+Login credentials entered successfully<br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 180.55 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.41.0&apos;, revision: &apos;3192d8a6c4449dc285928ba024779344f5423c58&apos;, time: &apos;2014-03-27 11:29:39&apos;
+System info: host: &apos;IPPRAKASHKUMAR&apos;, ip: &apos;192.168.1.84&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.9.4&apos;, java.version: &apos;1.6.0_65&apos;
+Session ID: ca8aaac9-5ce1-413d-93ba-64d160423632
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities [{app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platform=MAC, javascriptEnabled=true, databaseEnabled=false, platformName=ios, deviceName=iPhone, browserName=iOS, webStorageEnabled=false, desired={app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platformName=ios, deviceName=iPhone}, locationContextEnabled=false, warnings={}, takesScreenshot=true}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:81)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByName.findElement(By.java:299)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
+	at se.copernicus.IOS.EventTimeReport.test1AddEventTimeReport(EventTimeReport.java:81)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace510067833", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace510067833'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 180.55 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.41.0&apos;, revision: &apos;3192d8a6c4449dc285928ba024779344f5423c58&apos;, time: &apos;2014-03-27 11:29:39&apos;
+System info: host: &apos;IPPRAKASHKUMAR&apos;, ip: &apos;192.168.1.84&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.9.4&apos;, java.version: &apos;1.6.0_65&apos;
+Session ID: ca8aaac9-5ce1-413d-93ba-64d160423632
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities [{app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platform=MAC, javascriptEnabled=true, databaseEnabled=false, platformName=ios, deviceName=iPhone, browserName=iOS, webStorageEnabled=false, desired={app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platformName=ios, deviceName=iPhone}, locationContextEnabled=false, warnings={}, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:81)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByName.findElement(By.java:299)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
+	at se.copernicus.IOS.EventTimeReport.test1AddEventTimeReport(EventTimeReport.java:81)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>261</td>
+<td>se.copernicus.IOS.EventTimeReport@5f326484</td></tr>
+<tr>
+<td title='se.copernicus.IOS.MissingHours.test1ValidateMissingHoursAndSubmit()'><b>test1ValidateMissingHoursAndSubmit</b><br>Test class: se.copernicus.IOS.MissingHours<br/>
+<a href="#Output-1953346364" onClick='toggleBox("Output-1953346364", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1953346364" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1953346364">
+Login credentials entered successfully<br/>
+Validated Missing Hours successfully<br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 182.42 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.41.0&apos;, revision: &apos;3192d8a6c4449dc285928ba024779344f5423c58&apos;, time: &apos;2014-03-27 11:29:39&apos;
+System info: host: &apos;IPPRAKASHKUMAR&apos;, ip: &apos;192.168.1.84&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.9.4&apos;, java.version: &apos;1.6.0_65&apos;
+Session ID: 24535f22-eb19-43bc-85bf-b3b2e0128c52
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities [{app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platform=MAC, javascriptEnabled=true, databaseEnabled=false, platformName=ios, deviceName=iPhone, browserName=iOS, webStorageEnabled=false, desired={app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platformName=ios, deviceName=iPhone}, locationContextEnabled=false, warnings={}, takesScreenshot=true}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:81)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:445)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
+	at se.copernicus.IOS.MissingHours.LogoutTestCase(MissingHours.java:85)
+	at se.copernicus.IOS.MissingHours.test1ValidateMissingHoursAndSubmit(MissingHours.java:79)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1953346364", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1953346364'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 182.42 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.41.0&apos;, revision: &apos;3192d8a6c4449dc285928ba024779344f5423c58&apos;, time: &apos;2014-03-27 11:29:39&apos;
+System info: host: &apos;IPPRAKASHKUMAR&apos;, ip: &apos;192.168.1.84&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.9.4&apos;, java.version: &apos;1.6.0_65&apos;
+Session ID: 24535f22-eb19-43bc-85bf-b3b2e0128c52
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities [{app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platform=MAC, javascriptEnabled=true, databaseEnabled=false, platformName=ios, deviceName=iPhone, browserName=iOS, webStorageEnabled=false, desired={app=/Users/indpro/Documents/CopernicusMobileWorkspace/AutomationTesting/src/test/resources/cTimeSheetSimulator.app, platformName=ios, deviceName=iPhone}, locationContextEnabled=false, warnings={}, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:81)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:445)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
+	at se.copernicus.IOS.MissingHours.LogoutTestCase(MissingHours.java:85)
+	at se.copernicus.IOS.MissingHours.test1ValidateMissingHoursAndSubmit(MissingHours.java:79)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>227</td>
+<td>se.copernicus.IOS.MissingHours@54520eb</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='se.copernicus.IOS.Login.test1LoginFieldsValidation()'><b>test1LoginFieldsValidation</b><br>Test class: se.copernicus.IOS.Login<br/>
+<a href="#Output-1419469344" onClick='toggleBox("Output-1419469344", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1419469344" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1419469344">
+Login credentials entered successfully<br/>
+</div>
+</td>
+<td></td>
+<td>13</td>
+<td>se.copernicus.IOS.Login@30384065</td></tr>
+<tr>
+<td title='se.copernicus.IOS.TimeReport.test1SearchCompany()'><b>test1SearchCompany</b><br>Test class: se.copernicus.IOS.TimeReport<br/>
+<a href="#Output-355598874" onClick='toggleBox("Output-355598874", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-355598874" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-355598874">
+Login credentials entered successfully<br/>
+Search script tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>40</td>
+<td>se.copernicus.IOS.TimeReport@1089cc5e</td></tr>
+<tr>
+<td title='se.copernicus.IOS.ContactStaff.test1ValidateContactStaff()'><b>test1ValidateContactStaff</b><br>Test class: se.copernicus.IOS.ContactStaff<br/>
+<a href="#Output-1958735194" onClick='toggleBox("Output-1958735194", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1958735194" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1958735194">
+Login credentials entered successfully<br/>
+Validated Contact Staff successfully<br/>
+Logout tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>59</td>
+<td>se.copernicus.IOS.ContactStaff@46c837cd</td></tr>
+<tr>
+<td title='se.copernicus.IOS.TimeReport.test2AddTimeReport()'><b>test2AddTimeReport</b><br>Test class: se.copernicus.IOS.TimeReport<br/>
+<a href="#Output-566207443" onClick='toggleBox("Output-566207443", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-566207443" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-566207443">
+Time Report Added Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>30</td>
+<td>se.copernicus.IOS.TimeReport@1089cc5e</td></tr>
+<tr>
+<td title='se.copernicus.IOS.Login.test2InvalidLogin()'><b>test2InvalidLogin</b><br>Test class: se.copernicus.IOS.Login<br/>
+<a href="#Output-550579946" onClick='toggleBox("Output-550579946", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-550579946" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-550579946">
+Invalid Login tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>13</td>
+<td>se.copernicus.IOS.Login@30384065</td></tr>
+<tr>
+<td title='se.copernicus.IOS.Login.test3DeleteUser()'><b>test3DeleteUser</b><br>Test class: se.copernicus.IOS.Login<br/>
+<a href="#Output-838415247" onClick='toggleBox("Output-838415247", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-838415247" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-838415247">
+Delete User tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>se.copernicus.IOS.Login@30384065</td></tr>
+<tr>
+<td title='se.copernicus.IOS.TimeReport.test3EditTimeReport()'><b>test3EditTimeReport</b><br>Test class: se.copernicus.IOS.TimeReport<br/>
+<a href="#Output-1812245295" onClick='toggleBox("Output-1812245295", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1812245295" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1812245295">
+Time Report Edited Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>se.copernicus.IOS.TimeReport@1089cc5e</td></tr>
+<tr>
+<td title='se.copernicus.IOS.TimeReport.test4DeleteTimeReport()'><b>test4DeleteTimeReport</b><br>Test class: se.copernicus.IOS.TimeReport<br/>
+<a href="#Output-1591684408" onClick='toggleBox("Output-1591684408", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1591684408" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1591684408">
+Time Report Deleted Successfully<br/>
+Logout tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>se.copernicus.IOS.TimeReport@1089cc5e</td></tr>
+<tr>
+<td title='se.copernicus.IOS.Login.test4InvalidPassword()'><b>test4InvalidPassword</b><br>Test class: se.copernicus.IOS.Login<br/>
+<a href="#Output-1288118851" onClick='toggleBox("Output-1288118851", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1288118851" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1288118851">
+Invalid Password tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>se.copernicus.IOS.Login@30384065</td></tr>
+<tr>
+<td title='se.copernicus.IOS.Login.test5LoginTestCase()'><b>test5LoginTestCase</b><br>Test class: se.copernicus.IOS.Login<br/>
+<a href="#Output-885516455" onClick='toggleBox("Output-885516455", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-885516455" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-885516455">
+Login successfull<br/>
+Logout tested Successfully<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>se.copernicus.IOS.Login@30384065</td></tr>
+</table><p>
+</body>
+</html>

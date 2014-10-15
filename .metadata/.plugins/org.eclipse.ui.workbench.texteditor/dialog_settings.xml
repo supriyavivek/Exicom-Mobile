@@ -13,17 +13,21 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="ImplicitlyWait" key="selection"/>
 		<list key="findhistory">
+			<item value="ImplicitlyWait"/>
+			<item value="implicitlyWait"/>
+			<item value="AddUserDetails"/>
+			<item value="wd"/>
+			<item value="AssertJUnit"/>
+			<item value="Assert"/>
 			<item value="eclipse.jetty"/>
 			<item value="eclipse_jetty.."/>
-			<item value="jetty"/>
-			<item value="driver"/>
-			<item value="wd"/>
 		</list>
 		<list key="replacehistory">
-			<item value="wd"/>
 			<item value="driver"/>
+			<item value="Assert"/>
+			<item value="wd"/>
 		</list>
 	</section>
 </section>
